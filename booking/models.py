@@ -25,14 +25,26 @@ class Table(models.Model):
     capacity = models.IntegerField()
     table_notes = models.TextField(blank=True) # Field for staff notes
 
+    class Meta:
+        ordering = ["table_number"] 
+
+    def __str__(self):
+        return f"Table {self.table_number} (Capacity: {self.capacity})"
+
 
 class Booking(models.Model):
     name = models.CharField(max_length=30)
-    phone_number = models.CharField(validators=[phone_validator], max_length=17, blank=True)
+    phone_number = models.CharField(validators=[phone_validator], max_length=17)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE)
     no_of_guests = models.IntegerField()
     date = models.DateField()
-    time_slot = models.IntegerField(choices=TIME_SLOTS)
-    booked_table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    time_slot = models.IntegerField(choices=TIME_SLOTS) 
+    booked_table = models.ForeignKey(Table, on_delete=models.CASCADE, blank=True, null=True) # Should only be visible for staff members
     booking_notes = models.TextField(blank=True) # Field for customer notes
+
+    class Meta:
+        ordering = ["date", "time_slot"]
+
+    def __str__(self):
+        return f"Booking for {self.no_of_guests} on {self.date} booked by {self.name}"
