@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking View</title>
-</head>
+{% block content %}
 
-<body>
     <h1>Booking list</h1>
     {% for booking in object_list %}
     <h2>Made by: {{booking.name}}</h2>
@@ -16,6 +9,5 @@
     <p>On: {{booking.date}}</p>
     <p>Aditional notes: {{booking.booking_notes}}</p>
     {% endfor %}
-</body>
 
-</html>
+{% endblock %}
