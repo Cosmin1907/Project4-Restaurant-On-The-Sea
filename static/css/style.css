@@ -1,0 +1,37 @@
+body {
+    font-family: 'Roboto', sans-serif; 
+    background: #f4f4f4; 
+    color: #333; 
+    line-height: 1.6; 
+    padding: 20px; 
+}
+
+/* Styling for the booking list header */
+h1 {
+    text-align: center; 
+    color: #0275d8; /* Bootstrap's info blue for a pop of color */
+    font-family: 'Lato', sans-serif; 
+    font-weight: 700; 
+}
+
+/* Individual booking entries */
+h2 {
+    margin-top: 20px;
+    color: #555; 
+    border-bottom: 2px solid #ddd; 
+    padding-bottom: 5px;
+    font-family: 'Lato', sans-serif; 
+    font-weight: 700; 
+}
+
+p {
+    margin-left: 20px; 
+    color: #666; 
+    font-family: 'Roboto', sans-serif; 
+}
+
+/* Styling specific to booking details to differentiate them */
+p.booking-details {
+    font-style: italic; 
+    font-family: 'Lato', sans-serif; 
+}
