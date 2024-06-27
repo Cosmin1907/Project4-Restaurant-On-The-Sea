@@ -2,12 +2,16 @@
 
 {% block content %}
 
-    <h1>Booking list</h1>
-    {% for booking in object_list %}
-    <h2>Made by: {{booking.name}}</h2>
-    <p>Booking for: {{booking.no_of_guests}}</p>
-    <p>On: {{booking.date}}</p>
-    <p>Aditional notes: {{booking.booking_notes}}</p>
-    {% endfor %}
+{% if user.is_authenticated %}
+
+<h1>Booking list</h1>
+{% for booking in object_list %}
+<h2>Made by: {{booking.name}}</h2>
+<p>Booking for: {{booking.no_of_guests}}</p>
+<p>On: {{booking.date}}</p>
+<p>Aditional notes: {{booking.booking_notes}}</p>
+{% endfor %}
+
+{% endif %}
 
 {% endblock %}
