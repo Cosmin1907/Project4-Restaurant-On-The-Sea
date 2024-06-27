@@ -55,3 +55,14 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking for {self.no_of_guests} on {self.date} booked by {self.name}"
+
+    def save(self, *args, **kwargs):
+        # Assign a table if one is not already set
+        if not self.booked_table:
+            # Just pick the first available table
+            table = Table.objects.first()
+            if not table:
+                raise ValidationError('No tables available.')
+            self.booked_table = table
+
+        super().save(*args, **kwargs)
