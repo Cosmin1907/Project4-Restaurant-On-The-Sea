@@ -11,18 +11,25 @@ phone_validator = RegexValidator(
 
 # Time slots for booking
 TIME_SLOTS = (
-    (0, "09:30 - 11:00"),
-    (1, "11:30 - 13:00"),
-    (2, "13:30 - 15:00"),
-    (3, "15:30 - 17:00"),
-    (4, "17:30 - 19:00"),
-    (5, "19:30 - 21:00"),
+    (1, "09:30 - 11:00"),
+    (2, "11:30 - 13:00"),
+    (3, "13:30 - 15:00"),
+    (4, "15:30 - 17:00"),
+    (5, "17:30 - 19:00"),
+    (6, "19:30 - 21:00"),
+)
+
+CAPACITY = (
+    (1, "1-2 people"),
+    (2, "3-4 people"),
+    (3, "5-6 people"),
+    (4, "7-8 people"),
 )
 
 # Create your models here.
 class Table(models.Model):
-    table_number = models.IntegerField()
-    capacity = models.IntegerField()
+    table_number = models.PositiveIntegerField(unique=True)
+    capacity = models.IntegerField(choices=CAPACITY)
     table_notes = models.TextField(blank=True) # Field for staff notes
 
     class Meta:
@@ -40,7 +47,7 @@ class Booking(models.Model):
     no_of_guests = models.IntegerField()
     date = models.DateField()
     time_slot = models.IntegerField(choices=TIME_SLOTS) 
-    booked_table = models.ForeignKey(Table, on_delete=models.CASCADE, blank=True, null=True) # Should only be visible for staff members
+    booked_table = models.ForeignKey(Table, on_delete=models.CASCADE, blank=True, null=True) 
     booking_notes = models.TextField(blank=True) # Field for customer notes
 
     class Meta:
