@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
@@ -59,10 +60,9 @@ class Booking(models.Model):
     def save(self, *args, **kwargs):
         # Assign a table if one is not already set
         if not self.booked_table:
-            # Just pick the first available table
-            table = Table.objects.first()
-            if not table:
-                raise ValidationError('No tables available.')
+            # Create a new table and assign it to the booking
+            table_count = Table.objects.count() + 1
+            table = Table.objects.create(table_number=table_count, capacity=1)  # Default capacity set to 1
             self.booked_table = table
 
         super().save(*args, **kwargs)
