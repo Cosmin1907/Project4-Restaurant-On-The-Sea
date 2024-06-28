@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views import generic, View
 from django.views.generic import TemplateView
 from .models import Booking
 from .forms import BookingForm
@@ -17,5 +17,7 @@ class BookingList(generic.ListView):
             return Booking.objects.filter(user=user)
 
 
-class BookingTable(TemplateView):
-    template_name = "booking/booking_table.html"
+class BookingTable(View):
+    def get(self, request):
+        form = BookingForm()
+        return render(request, 'booking/booking_table.html', {'form': form})
