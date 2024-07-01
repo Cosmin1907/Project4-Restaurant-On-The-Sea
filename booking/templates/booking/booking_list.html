@@ -10,8 +10,8 @@
 <h2>Made by: {{booking.name}}</h2>
 <p>Booking for: {{booking.no_of_guests}}</p>
 <p>On: {{booking.date}}</p>
+<p>Your notes: {{booking.booking_notes}}</p>
 {% if user.is_staff %}
-<p>Aditional notes: {{booking.booking_notes}}</p>
 <p>Table: {{ booking.booked_table.table_number }}</p>
 <p>Capacity: {{ booking.booked_table.capacity }}</p>
 <P>Notes: {{ booking.booked_table.table_notes }}</P>
