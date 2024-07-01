@@ -25,6 +25,8 @@ class BookingTable(View):
     def post(self, request):
         form = BookingForm(request.POST)
         if form.is_valid():
-            form.save()
+            booking = form.save(commit=False)
+            booking.user = request.user  # Set the user field to the currently logged-in user
+            booking.save()
             return redirect("booking-list")
         return render(request, 'booking/booking_table.html', {'form': form})
