@@ -17,6 +17,7 @@
 <P>Notes: {{ booking.booked_table.table_notes }}</P>
 {% endif %}
 <a href="{% url 'booking-update' booking.pk %}" class="btn btn-secondary">Edit</a>
+<a href="{% url 'booking-delete' booking.pk %}" class="btn btn-danger">Delete</a>
 {% endfor %}
 
 {% endif %}

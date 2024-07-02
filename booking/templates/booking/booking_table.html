@@ -5,6 +5,7 @@
 
 {% block content %}
 {% if user.is_authenticated %}
+<!-- Conditional display Source: https://www.djangotemplatetagsandfilters.com/filters/yesno/ -->
 <h2>{{ form.instance.pk|yesno:"Edit Booking,Create Booking" }}</h2>
 
 <form method="post" novalidate>
