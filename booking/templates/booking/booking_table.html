@@ -5,13 +5,12 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<h2>This is the Booking table page</h2>
-<p>Book a Table</p>
+<h2>{{ form.instance.pk|yesno:"Edit Booking,Create Booking" }}</h2>
 
 <form method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
-    <button type="submit" class="btn btn-primary">Book</button>
+    <button type="submit" class="btn btn-primary">{{ form.instance.pk|yesno:"Save Changes,Book" }}</button>
 </form>
 {% else %}
 <h2>You need to log in to book a table.</h2>
