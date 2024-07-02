@@ -16,6 +16,7 @@
 <p>Capacity: {{ booking.booked_table.capacity }}</p>
 <P>Notes: {{ booking.booked_table.table_notes }}</P>
 {% endif %}
+<a href="{% url 'booking-update' booking.pk %}" class="btn btn-secondary">Edit</a>
 {% endfor %}
 
 {% endif %}

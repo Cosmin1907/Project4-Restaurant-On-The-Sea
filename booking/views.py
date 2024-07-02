@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from django.views import generic, View
 from django.views.generic import TemplateView
+from django.views.generic.edit import UpdateView
+from django.http import HttpResponseRedirect
 from .models import Booking
 from .forms import BookingForm
 
@@ -29,4 +31,12 @@ class BookingTable(View):
             booking.user = request.user  # Set the user field to the currently logged-in user
             booking.save()
             return redirect("booking-list")
-        return render(request, 'booking/booking_table.html', {'form': form})
+        return render(request, "booking/booking_table.html", {'form': form})
+
+#Source: https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#updateview
+class BookingUpdate(UpdateView):
+    model = Booking
+    form_class = BookingForm
+    template_name = "booking/booking_table.html"
+    success_url = "/booking/list"
+
