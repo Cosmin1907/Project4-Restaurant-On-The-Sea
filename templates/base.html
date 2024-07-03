@@ -69,6 +69,14 @@
         </ul>
       </div>
     </nav>
+
+    {% if messages %}
+    <div>
+      {% for message in messages %}
+      <div class="alert {{ message.tags }}">{{ message }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
   
 
         {% block content %}
@@ -99,6 +107,7 @@
 
     <!-- JS script -->
     <script src="{% static 'js/script.js' %}"></script>
+
 </body>
 
 </html>

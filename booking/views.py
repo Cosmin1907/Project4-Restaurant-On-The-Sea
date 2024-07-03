@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.views.generic import TemplateView
@@ -42,11 +43,19 @@ class BookingUpdate(UpdateView):
     template_name = "booking/booking_table.html"
     success_url = "/booking/list"
 
+    def form_valid(self, form):
+        messages.success(self.request, 'Booking Updated!')
+        return super().form_valid(form)
+
 #Source: https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#deleteview
 class BookingDelete(DeleteView):
     model = Booking
     template_name = "booking/booking_confirm_delete.html"
     success_url = reverse_lazy("booking-list")
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Booking Deleted!')
+        return super().form_valid(form)
 
 
 
