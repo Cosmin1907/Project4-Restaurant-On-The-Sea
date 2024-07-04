@@ -31,8 +31,7 @@ CAPACITY = (
 class Table(models.Model):
     table_number = models.PositiveIntegerField(unique=True)
     capacity = models.IntegerField(choices=CAPACITY)
-    table_notes = models.TextField(blank=True) # Field for staff notes
-
+    
     class Meta:
         ordering = ["table_number"] 
 
