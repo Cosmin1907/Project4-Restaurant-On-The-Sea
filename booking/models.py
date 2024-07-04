@@ -21,16 +21,18 @@ TIME_SLOTS = (
 )
 
 CAPACITY = (
-    (1, "1-2 people"),
-    (2, "3-4 people"),
-    (3, "5-6 people"),
-    (4, "7-8 people"),
+    (2, "1 person (seats 2)"),
+    (2, "2 persons (seats 2)"),
+    (4, "3 persons (seats 4)"),
+    (4, "4 persons (seats 4)"),
+    (6, "5 persons (seats 6)"),
+    (6, "6 persons (seats 6)"),
 )
 
 # Create your models here.
 class Table(models.Model):
     table_number = models.PositiveIntegerField(unique=True)
-    capacity = models.IntegerField(choices=CAPACITY)
+    capacity = models.IntegerField()
     
     class Meta:
         ordering = ["table_number"] 
@@ -44,7 +46,7 @@ class Booking(models.Model):
     phone_number = models.CharField(validators=[phone_validator], max_length=17)
     user = models.ForeignKey(
         User, on_delete=models.CASCADE)
-    no_of_guests = models.IntegerField()
+    no_of_guests = models.IntegerField(choices=CAPACITY)
     date = models.DateField()
     time_slot = models.IntegerField(choices=TIME_SLOTS) 
     booked_table = models.ForeignKey(Table, on_delete=models.CASCADE, blank=True, null=True) 
@@ -61,7 +63,7 @@ class Booking(models.Model):
         if not self.booked_table:
             # Create a new table and assign it to the booking
             table_count = Table.objects.count() + 1
-            table = Table.objects.create(table_number=table_count, capacity=1)  # Default capacity set to 1
+            table = Table.objects.create(table_number=table_count, capacity=self.no_of_guests) 
             self.booked_table = table
 
         super().save(*args, **kwargs)
