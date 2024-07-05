@@ -66,13 +66,3 @@ class Booking(models.Model):
     def __str__(self):
         return f"Booking for {self.no_of_guests} on {self.date} booked by {self.name}"
 
-    def save(self, *args, **kwargs):
-        # Assign a table if one is not already set
-        if not self.booked_table:
-            for table_number, capacity in TABLES:
-                if capacity == self.no_of_guests:
-                    table = Table.objects.create(table_number=table_number, capacity=capacity)
-                    self.booked_table = table
-                    break
-        
-        super().save(*args, **kwargs)
