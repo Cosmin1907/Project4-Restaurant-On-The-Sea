@@ -13,6 +13,14 @@ class BookingForm(forms.ModelForm):
         widgets = {
             'date': forms.DateInput(attrs={'type': 'date'}),  
         }
+        help_texts = {
+            'name': 'Enter your full name.',
+            'phone_number': 'Enter your phone number in the format: +123456789.',
+            'date': 'Select the booking date. Date cannot be in the past.',
+            'time_slot': 'Select a time slot for your booking. Start time must be in the future',
+            'no_of_guests': 'Enter the number of guests.',
+            'booking_notes': 'Any additional information or requests.',
+        }
 
     #Code inspired and adapted from, source: https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other
     def clean(self):
