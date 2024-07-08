@@ -1,3 +1,6 @@
+from .models import Booking
+from .forms import BookingForm
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
 from django.urls import reverse_lazy
@@ -5,9 +8,8 @@ from django.views import generic, View
 from django.views.generic import TemplateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
-from django.http import HttpResponseRedirect
-from .models import Booking
-from .forms import BookingForm
+from django.core.exceptions import ValidationError
+
 
 # Create your views here.
 class BookingList(generic.ListView):
@@ -30,10 +32,15 @@ class BookingTable(View):
     def post(self, request):
         form = BookingForm(request.POST)
         if form.is_valid():
-            booking = form.save(commit=False)
-            booking.user = request.user  # Set the user field to the currently logged-in user
-            booking.save()
-            return redirect("booking-list")
+            #The code was adapted to the requirements, Source: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
+            try:
+                booking = form.save(commit=False)
+                booking.user = request.user  # Set the user field to the currently logged-in user
+                booking.save()
+                messages.success(self.request, "Booking successfully created!")
+                return redirect("booking-list")
+            except ValidationError as e:
+                form.add_error(None, e)
         return render(request, "booking/booking_table.html", {'form': form})
 
 #Source: https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#updateview
