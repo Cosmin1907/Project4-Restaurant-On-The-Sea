@@ -21,21 +21,13 @@ TIME_SLOTS = (
 )
 
 GUESTS = (
-    (2, "1 guest"),
+    (1, "1 guest"),
     (2, "2 guests"),
-    (4, "3 guests"),
+    (3, "3 guests"),
     (4, "4 guests"),
-    (6, "5 guests"),
+    (5, "5 guests"),
     (6, "6 guests"),
 )
-
-# Predefined table structure
-TABLES = [
-    (1, 2), (2, 2), (3, 2), (4, 2), (5, 2), (6, 2),
-    (7, 4), (8, 4), (9, 4), (10, 4), (11, 4), (12, 4),
-    (13, 4), (14, 4), (15, 4),
-    (16, 6), (17, 6), (18, 6), (19, 6), (20, 6)
-]
 
 # Create your models here.
 class Table(models.Model):

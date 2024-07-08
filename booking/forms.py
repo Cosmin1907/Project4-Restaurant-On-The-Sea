@@ -1,3 +1,4 @@
+import random
 from .models import Booking, Table
 from django import forms
 
@@ -16,10 +17,9 @@ class BookingForm(forms.ModelForm):
         
         # Find or create a table with the required capacity
         if not booking.booked_table:
-            table = Table.objects.filter(capacity=booking.no_of_guests, booking__isnull=True).first()
-            if not table:
-                table_number = Table.objects.count() + 1  # Assign the next table number
-                table = Table.objects.create(table_number=table_number, capacity=booking.no_of_guests)
+            table_number = random.randint(1, 20)
+            table = Table.objects.create(table_number=table_number, capacity=booking.no_of_guests)
+               
             booking.booked_table = table
 
         # Save the instance only if commit is True
