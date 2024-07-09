@@ -64,7 +64,7 @@ class BookingForm(forms.ModelForm):
 
         if not booking.booked_table:
             if no_of_tables >= table_limit:
-                raise ValidationError(f"No tables available for capacity in this interval")
+                raise ValidationError(f"No tables available for {booking.no_of_guests} guests the selected time interval")
 
             table = Table.objects.create(table_number=table_number, capacity=capacity)
             booking.booked_table = table
