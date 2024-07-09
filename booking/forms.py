@@ -43,26 +43,30 @@ class BookingForm(forms.ModelForm):
     def save(self, commit=True):
         # Get an unsaved instance of the model
         booking = super().save(commit=False)
-
-        # Count existing tables for the given date and time slot
-        existing_bookings = Booking.objects.filter(date=booking.date, time_slot=booking.time_slot).count()
-        if existing_bookings >= 10:
-            raise ValidationError("No tables available for this date and time")
+        guests = booking.no_of_guests
         
         # Create a table with the required capacity
+        if guests <= 2:
+            capacity = 2
+            table_limit = 4
+            table_number = random.randint(1, 4)
+        elif guests <= 4:
+            capacity = 4
+            table_limit = 4
+            table_number = random.randint(5, 8)
+        elif guests <= 6:
+            capacity = 6
+            table_limit = 2
+            table_number = random.randint(9, 10)
+
+        # Filter existing bookings for the given date and time slot and capacity
+        no_of_tables = Booking.objects.filter(date=booking.date, time_slot=booking.time_slot, booked_table__capacity=capacity).count()
+
         if not booking.booked_table:
-            if booking.no_of_guests <= 2:
-                table_number = random.randint(1, 4)
-                capacity = 2
-            elif booking.no_of_guests <= 4:
-                table_number = random.randint(5, 8)
-                capacity = 4
-            elif booking.no_of_guests <= 6:
-                table_number = random.randint(9, 10)
-                capacity = 6
+            if no_of_tables >= table_limit:
+                raise ValidationError(f"No tables available for capacity in this interval")
 
             table = Table.objects.create(table_number=table_number, capacity=capacity)
-               
             booking.booked_table = table
 
         # Save the instance only if commit is True
