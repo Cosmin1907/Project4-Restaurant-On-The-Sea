@@ -4,11 +4,31 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<h1>This is The Venue</h1>
-<p>Welcome the the home page</p>
+<div class="container text-center">
+    <h1>This is The Venue</h1>
+    <p>Welcome to the home page</p>
 
-<a href="{% url 'booking-table' %}" class="btn btn-primary">Book a Table</a>
-<a href="{% url 'menu' %}" class="btn btn-secondary">Menu</a>
+    <div class="button-container d-flex flex-column align-items-center mb-4">
+        <a href="{% url 'booking-table' %}" class="btn btn-primary mb-2">Book a Table</a>
+        <a href="{% url 'menu' %}" class="btn btn-secondary">Menu</a>
+    </div>
+</div>
+
+<!-- Contact area and opening hours -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Contact Us</h2>
+            <p>Phone: (123) 456-7890</p>
+            <p>Email: info@thevenue.com</p>
+        </div>
+        <div class="col-md-6">
+            <h2>Opening Hours</h2>
+            <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
+            <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+        </div>
+    </div>
+</div>
 
 <!-- index.html content ends here -->
 {% endblock %}

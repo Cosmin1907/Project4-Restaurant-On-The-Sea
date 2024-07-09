@@ -35,3 +35,13 @@ p.booking-details {
     font-style: italic; 
     font-family: 'Lato', sans-serif; 
 }
+
+/* Styling for home page */
+
+.button-container {
+    margin-bottom: 20px; /* Adjust the space below the buttons */
+  }
+  .contact-info {
+    margin-top: 20px; /* Adjust the space above the contact info */
+  }
+  
