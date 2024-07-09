@@ -25,6 +25,8 @@ GUESTS = (
     (2, "2 guests"),
     (3, "3 guests"),
     (4, "4 guests"),
+    (5, "5 guests"),
+    (6, "4 guests"),
 )
 
 # Create your models here.

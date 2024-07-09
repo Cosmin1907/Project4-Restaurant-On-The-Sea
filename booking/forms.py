@@ -49,10 +49,19 @@ class BookingForm(forms.ModelForm):
         if existing_bookings >= 10:
             raise ValidationError("No tables available for this date and time")
         
-        # Find or create a table with the required capacity
+        # Create a table with the required capacity
         if not booking.booked_table:
-            table_number = random.randint(1, 10)
-            table = Table.objects.create(table_number=table_number, capacity=booking.no_of_guests)
+            if booking.no_of_guests <= 2:
+                table_number = random.randint(1, 4)
+                capacity = 2
+            elif booking.no_of_guests <= 4:
+                table_number = random.randint(5, 8)
+                capacity = 4
+            elif booking.no_of_guests <= 6:
+                table_number = random.randint(9, 10)
+                capacity = 6
+
+            table = Table.objects.create(table_number=table_number, capacity=capacity)
                
             booking.booked_table = table
 
