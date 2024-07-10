@@ -9,6 +9,7 @@ from django.views.generic import TemplateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.core.exceptions import ValidationError
+from django.contrib.auth.mixins import UserPassesTestMixin
 
 
 # Create your views here.
@@ -44,7 +45,7 @@ class BookingTable(View):
         return render(request, "booking/booking_table.html", {'form': form})
 
 #Source: https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#updateview
-class BookingUpdate(UpdateView):
+class BookingUpdate(UserPassesTestMixin, UpdateView):
     model = Booking
     form_class = BookingForm
     template_name = "booking/booking_table.html"
@@ -54,8 +55,16 @@ class BookingUpdate(UpdateView):
         messages.success(self.request, 'Booking Updated!')
         return super().form_valid(form)
 
+    def test_func(self):
+        """ Test user is staff else throw 403 """
+        if self.request.user.is_staff:
+            return True
+        else:
+            return self.request.user == self.get_object().user
+
+
 #Source: https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#deleteview
-class BookingDelete(DeleteView):
+class BookingDelete(UserPassesTestMixin, DeleteView):
     model = Booking
     template_name = "booking/booking_confirm_delete.html"
     success_url = reverse_lazy("booking-list")
@@ -63,6 +72,17 @@ class BookingDelete(DeleteView):
     def form_valid(self, form):
         messages.success(self.request, 'Booking Deleted!')
         return super().form_valid(form)
+
+    def test_func(self):
+        """ Test user is staff else throw 403 """
+        if self.request.user.is_staff:
+            return True
+        else:
+            return self.request.user == self.get_object().user
+
+
+def custom_403(request, exception):
+    return render(request, '403.html', status=403)
 
 
 
