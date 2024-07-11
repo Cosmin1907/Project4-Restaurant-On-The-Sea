@@ -4,31 +4,107 @@
 {% block content %}
 
 <!-- index.html content starts here -->
-<div class="container text-center">
-    <h1>This is The Venue</h1>
-    <p>Welcome to the home page</p>
+ 
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+      <div class="row">
+        <div class="col-lg-8">
+          <h1>Welcome to <span>Restaurantly</span></h1>
+          <h2>Delivering great food for more than 18 years!</h2>
 
-    <div class="button-container d-flex flex-column align-items-center mb-4">
-        <a href="{% url 'booking-table' %}" class="btn btn-primary mb-2">Book a Table</a>
-        <a href="{% url 'menu' %}" class="btn btn-secondary">Menu</a>
+          <div class="btns">
+            <a href="{% url 'menu' %}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+            <a href="{% url 'booking-table' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
+  </section>
 
-<!-- Contact area and opening hours -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Contact Us</h2>
-            <p>Phone: (123) 456-7890</p>
-            <p>Email: info@thevenue.com</p>
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
+            <div class="about-img">
+              <img src="assets/img/about.jpg" alt="">
+            </div>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assumenda.</h3>
+            <p class="fst-italic">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+              magna aliqua.
+            </p>
+            <ul>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+              <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+              <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+            </ul>
+            <p>
+              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+              culpa qui officia deserunt mollit anim id est laborum
+            </p>
+          </div>
         </div>
-        <div class="col-md-6">
-            <h2>Opening Hours</h2>
-            <p>Monday - Friday: 9:00 AM - 10:00 PM</p>
-            <p>Saturday - Sunday: 10:00 AM - 11:00 PM</p>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+     
+
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="row mt-5">
+
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Location:</h4>
+                <p>A108 Adam Street, New York, NY 535022</p>
+              </div>
+
+              <div class="open-hours">
+                <i class="bi bi-clock"></i>
+                <h4>Open Hours:</h4>
+                <p>
+                  Monday-Saturday:<br>
+                  11:00 AM - 2300 PM
+                </p>
+              </div>
+
+              <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>info@example.com</p>
+              </div>
+
+              <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Call:</h4>
+                <p>+1 5589 55488 55s</p>
+              </div>
+
+            </div>
+
+          </div>
+
+          
+
         </div>
-    </div>
-</div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main>
 
 <!-- index.html content ends here -->
 {% endblock %}
