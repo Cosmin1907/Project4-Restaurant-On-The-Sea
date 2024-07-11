@@ -1,37 +1,127 @@
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
 body {
-    font-family: 'Roboto', sans-serif; 
-    background: #f4f4f4; 
-    color: #333; 
-    line-height: 1.6; 
-    padding: 20px; 
+    font-family: "Roboto", sans-serif;
+    background: #1a1814;
+    color: #fff;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+a {
+    color: #cda45e;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #d9ba85;
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", serif;
 }
 
 /* Styling for the booking list header */
 h1 {
-    text-align: center; 
-    color: #0275d8; /* Bootstrap's info blue for a pop of color */
-    font-family: 'Lato', sans-serif; 
-    font-weight: 700; 
+    text-align: center;
+    color: #cda45e;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
 }
 
 /* Individual booking entries */
 h2 {
     margin-top: 20px;
-    color: #555; 
-    border-bottom: 2px solid #ddd; 
+    color: #d9ba85;
+    border-bottom: 2px solid #37332a;
     padding-bottom: 5px;
-    font-family: 'Lato', sans-serif; 
-    font-weight: 700; 
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
 }
 
 p {
-    margin-left: 20px; 
-    color: #666; 
-    font-family: 'Roboto', sans-serif; 
+    margin-left: 20px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
 }
 
 /* Styling specific to booking details to differentiate them */
 p.booking-details {
-    font-style: italic; 
-    font-family: 'Lato', sans-serif; 
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+header {
+    background: rgba(12, 11, 9, 0.8);
+    border-bottom: 1px solid rgba(12, 11, 9, 0.6);
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 15px 0;
+}
+
+header h1 a {
+    color: #fff;
+    font-size: 28px;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    color: #d9ba85;
+}
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+footer {
+    background: rgba(12, 11, 9, 0.8);
+    padding: 30px 0;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+}
+
+footer a {
+    color: #cda45e;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #d9ba85;
+    text-decoration: none;
+}
+
+footer i {
+    font-size: 18px;
+    display: inline-block;
+    background: #28251f;
+    color: #fff;
+    line-height: 1;
+    padding: 8px 0;
+    margin-right: 4px;
+    border-radius: 50%;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    transition: 0.3s;
+}
+
+footer i:hover {
+    background: #cda45e;
+    color: #fff;
+    text-decoration: none;
 }
