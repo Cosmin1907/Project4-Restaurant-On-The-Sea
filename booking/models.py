@@ -2,7 +2,7 @@ from django.db import models
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
-from django.contrib.auth.mixins import PermissionRequiredMixin
+
 
 # Phone number validator
 # Source: https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-a-phone-number-in-django-models
