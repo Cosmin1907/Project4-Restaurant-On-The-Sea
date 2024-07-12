@@ -21,36 +21,6 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "Playfair Display", serif;
 }
 
-/* Styling for the booking list header */
-#bookings h1 {
-    text-align: center;
-    color: #cda45e;
-    font-family: "Playfair Display", serif;
-    font-weight: 700;
-}
-
-
-/* Individual booking entries */
-
-.card {
-    background: rgba(12, 11, 9, 0.8);
-}
-
-h2 {
-    margin-top: 20px;
-    color: #d9ba85;
-    border-bottom: 2px solid #37332a;
-    padding-bottom: 5px;
-    font-family: "Playfair Display", serif;
-    font-weight: 600;
-}
-
-p {
-    margin-left: 20px;
-    color: #fff;
-    font-family: "Roboto", sans-serif;
-}
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -244,7 +214,40 @@ footer i:hover {
       margin-bottom: 20px; 
     }
   }
-  
+
+/*--------------------------------------------------------------
+# Bookings
+--------------------------------------------------------------*/
+
+/* Styling for the booking list header */
+#bookings h1 {
+    text-align: center;
+    color: #cda45e;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+}
+
+
+/* Individual booking entries */
+
+#bookings .card {
+    background: rgba(12, 11, 9, 0.8);
+}
+
+#bookings h2 {
+    margin-top: 20px;
+    color: #d9ba85;
+    border-bottom: 2px solid #37332a;
+    padding-bottom: 5px;
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+}
+
+#bookings p {
+    margin-left: 20px;
+    color: #fff;
+    font-family: "Roboto", sans-serif;
+}
 
 /*--------------------------------------------------------------
 # Buttons 
