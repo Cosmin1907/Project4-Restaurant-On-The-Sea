@@ -81,5 +81,16 @@ class TestBookingForm(TestCase):
             msg="Number of guests was not provided, but the form is valid"
         )
 
-   
+   def test_past_date(self):
+        form = BookingForm({
+         'name': 'Name',
+         'phone_number': '+40723974937',
+         'date': (date.today() - timedelta(days=1)).isoformat(),
+         'time_slot': 1, 
+         'no_of_guests': 1
+        })
+        self.assertFalse(
+            form.is_valid(),
+            msg="Date is in the past, but the form is valid"
+        ) 
 
