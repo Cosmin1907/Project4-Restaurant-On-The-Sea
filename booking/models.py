@@ -4,11 +4,11 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 
 
-# Phone number validator
+# Phone number validator for E.164 format
 # Source: https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-a-phone-number-in-django-models
 phone_validator = RegexValidator(
-    regex=r'^\+?[1-9]\d{0,3}\d{4,14}$',
-    message="Phone number must be entered in the format: '<country code><local number>'. Up to 15 digits allowed, with an optional leading '+'."
+    regex=r'^(?:\+|00)[1-9]\d{9,14}$',
+    message="Phone number must be entered in the format: '+<country code><number>' or '00<country code><number>'. Up to 15 digits allowed, with a minimum of 10 digits required."
 )
 
 # Time slots for booking

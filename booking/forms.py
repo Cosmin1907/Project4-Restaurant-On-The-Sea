@@ -1,11 +1,13 @@
 import random
-from .models import Booking, Table
+from .models import Booking, Table, phone_validator
 from django import forms
 from django.utils import timezone
 from datetime import datetime
 from django.core.exceptions import ValidationError
 
 class BookingForm(forms.ModelForm):
+    phone_number = forms.CharField(validators=[phone_validator], max_length=17)
+
     class Meta:
         model = Booking
         fields = ('name', 'phone_number', 'date', 'time_slot', 'no_of_guests', 'booking_notes')

@@ -110,7 +110,20 @@ class TestBookingForm(TestCase):
           msg="The time slot is in the past, but the form is valid"
           )
 
-     
+     def test_wrong_phone_format(self):
+        form = BookingForm({
+         'name': 'Name',
+         'phone_number': '7239749373',
+         'date': (date.today() + timedelta(days=1)).isoformat(), 
+         'time_slot': 1, 
+         'no_of_guests': 1
+        })
+        if form.is_valid():
+            print("Form errors:", form.errors)
+        self.assertFalse(
+            form.is_valid(),
+            msg="The phone format is incorect, but the form is valid"
+        )
 
      
 
