@@ -1,12 +1,13 @@
 from django.test import TestCase
 from .forms import BookingForm
-from datetime import date, timedelta 
+from datetime import date, timedelta
+from freezegun import freeze_time 
 
 # Create your tests here.
 
 class TestBookingForm(TestCase):
-   
-   def test_form_is_valid(self):
+
+     def test_form_is_valid(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '+40723974937',
@@ -16,7 +17,7 @@ class TestBookingForm(TestCase):
         })
         self.assertTrue(form.is_valid())
 
-   def test_name_is_required(self):
+     def test_name_is_required(self):
         form = BookingForm({
          'name': '',
          'phone_number': '+40723974937',
@@ -29,7 +30,7 @@ class TestBookingForm(TestCase):
             msg="Name was not provided, but the form is valid"
         )
         
-   def test_phone_is_required(self):
+     def test_phone_is_required(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '',
@@ -42,7 +43,7 @@ class TestBookingForm(TestCase):
             msg="Phone Number was not provided, but the form is valid"
         )
 
-   def test_date_is_required(self):
+     def test_date_is_required(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '+40723974937',
@@ -55,7 +56,7 @@ class TestBookingForm(TestCase):
             msg="Date was not provided, but the form is valid"
         )       
 
-   def test_time_is_required(self):
+     def test_time_is_required(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '',
@@ -68,7 +69,7 @@ class TestBookingForm(TestCase):
             msg="Time Slot was not provided, but the form is valid"
         )
 
-   def test_guests_is_required(self):
+     def test_guests_is_required(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '',
@@ -81,7 +82,7 @@ class TestBookingForm(TestCase):
             msg="Number of guests was not provided, but the form is valid"
         )
 
-   def test_past_date(self):
+     def test_past_date(self):
         form = BookingForm({
          'name': 'Name',
          'phone_number': '+40723974937',
@@ -92,5 +93,28 @@ class TestBookingForm(TestCase):
         self.assertFalse(
             form.is_valid(),
             msg="Date is in the past, but the form is valid"
-        ) 
+        )
+
+#Code inspired by Source: https://github.com/spulec/freezegun
+     @freeze_time(lambda: date.today().isoformat() + " 10:30:00")
+     def test_time_slot_is_in_past(self):
+          form = BookingForm({
+          'name': 'Name',
+          'phone_number': '+40723974937',
+          'date': date.today().isoformat(),  # Today's date
+          'time_slot': 1,  # 1 corresponds to "09:00 - 10:45"
+          'no_of_guests': 1
+          })
+          self.assertFalse(
+          form.is_valid(),
+          msg="The time slot is in the past, but the form is valid"
+          )
+
+     
+
+     
+
+     
+
+          
 
