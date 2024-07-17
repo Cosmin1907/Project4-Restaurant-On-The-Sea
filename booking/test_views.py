@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.test import TestCase
 from .forms import BookingForm
-from .models import Booking
+from .models import Booking, Table
 from django.test import Client
 from datetime import date, timedelta
 
@@ -29,26 +29,35 @@ class TestBookingViews(TestCase):
             password="userPass",
             email="user@test.com"
         )
-        
 
-        # Create bookings for each user
-        self.booking1 = Booking.objects.create(
-            name="Admin Booking",
-            user=self.superuser,
-            phone_number="+40723974593",
-            date=date.today() + timedelta(days=1),  
-            time_slot=1,
-            no_of_guests=1
-        )
+        # Create bookings using the form to ensure all logic is executed
+        booking_data1 = {
+            'name': 'Admin Booking',
+            'user': self.superuser,
+            'phone_number': '+40723974593',
+            'date': date.today() + timedelta(days=1),
+            'time_slot': 1,
+            'no_of_guests': 1,
+        }
+        form1 = BookingForm(data=booking_data1)
+        if form1.is_valid():
+            self.booking1 = form1.save(commit=False)
+            self.booking1.user = self.superuser
+            self.booking1.save()
 
-        self.booking2 = Booking.objects.create(
-            name="User Booking",
-            user=self.regular_user,
-            phone_number="+40723974587",
-            date=date.today() + timedelta(days=1),  
-            time_slot=2,
-            no_of_guests=2
-        )
+        booking_data2 = {
+            'name': 'User Booking',
+            'user': self.regular_user,
+            'phone_number': '+40723974587',
+            'date': date.today() + timedelta(days=1),
+            'time_slot': 2,
+            'no_of_guests': 2,
+        }
+        form2 = BookingForm(data=booking_data2)
+        if form2.is_valid():
+            self.booking2 = form2.save(commit=False)
+            self.booking2.user = self.regular_user
+            self.booking2.save()
 
     def test_booking_list_view(self):
         # Log in as superuser and test
@@ -59,6 +68,7 @@ class TestBookingViews(TestCase):
         self.assertTemplateUsed(response, 'booking/booking_list.html')
         self.assertContains(response, 'Made by: Admin Booking')
         self.assertContains(response, 'Made by: User Booking')
+        self.assertContains(response, 'Capacity: 2')
 
         # Log in as regular user and test
         self.client.login(username='user', password='userPass')
