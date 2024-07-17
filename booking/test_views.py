@@ -52,6 +52,7 @@ class TestBookingViews(TestCase):
         # Log in as superuser and test
         self.client.login(username="admin", password="adminPass")
         response = self.client.get(reverse('booking-list'))
+        print(response.content.decode())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking/booking_list.html')
         self.assertContains(response, 'Made by: Admin Booking')
@@ -76,6 +77,40 @@ class TestBookingViews(TestCase):
         })
         self.assertEqual(response.status_code, 302) 
         self.assertTrue(Booking.objects.filter(name='New Booking').exists())
+
+    def test_regular_user_update_booking(self):
+        self.client.login(username='user', password='userPass')
+        response = self.client.post(
+        reverse('booking-update', kwargs={'pk': self.booking2.pk}),
+        {
+            'name': 'Updated by User',
+            'phone_number': '+40723974594',
+            'date': date.today() + timedelta(days=4),
+            'time_slot': 4,
+            'no_of_guests': 4,
+        }
+    )
+        self.assertEqual(response.status_code, 302)
+        self.booking2.refresh_from_db()  
+        self.assertEqual(self.booking2.name, 'Updated by User')
+
+    def test_superuser_update_booking(self):
+        self.client.login(username='admin', password='adminPass')
+        response = self.client.post(
+            reverse('booking-update', kwargs={'pk': self.booking2.pk}),
+            {
+                'name': 'Updated Booking by Admin',
+                'phone_number': '+40723974594',
+                'date': date.today() + timedelta(days=4),
+                'time_slot': 4,
+                'no_of_guests': 4,
+            }
+        )
+        self.assertEqual(response.status_code, 302)
+        self.booking2.refresh_from_db()
+        self.assertEqual(self.booking2.name, 'Updated Booking by Admin')
+
+    
 
 
         

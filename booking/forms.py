@@ -74,4 +74,6 @@ class BookingForm(forms.ModelForm):
         # Save the instance only if commit is True
         if commit:
             booking.save()
+
+        print(f"Booking saved with table: {booking.booked_table}")
         return booking
