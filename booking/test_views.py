@@ -10,6 +10,7 @@ from datetime import date, timedelta
 # Create your tests here.
 # Part of the code inspired by Source: 
 # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#the-test-client
+# https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRaises
 
 class TestBookingViews(TestCase):
     def setUp(self):
@@ -28,6 +29,7 @@ class TestBookingViews(TestCase):
             password="userPass",
             email="user@test.com"
         )
+        
 
         # Create bookings for each user
         self.booking1 = Booking.objects.create(
@@ -78,7 +80,7 @@ class TestBookingViews(TestCase):
         self.assertEqual(response.status_code, 302) 
         self.assertTrue(Booking.objects.filter(name='New Booking').exists())
 
-    def test_regular_user_update_booking(self):
+    def test_booking_update_view(self):
         self.client.login(username='user', password='userPass')
         response = self.client.post(
         reverse('booking-update', kwargs={'pk': self.booking2.pk}),
@@ -109,6 +111,27 @@ class TestBookingViews(TestCase):
         self.assertEqual(response.status_code, 302)
         self.booking2.refresh_from_db()
         self.assertEqual(self.booking2.name, 'Updated Booking by Admin')
+
+    def test_regular_user_delete_booking(self):
+        self.client.login(username='user', password='userPass')
+        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking2.pk}))
+        self.assertEqual(response.status_code, 302)
+        with self.assertRaises(Booking.DoesNotExist):
+            Booking.objects.get(pk=self.booking2.pk)
+
+    def test_superuser_delete_booking(self):
+        #Superuser can delete any booking
+        self.client.login(username='admin', password='adminPass')
+        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking2.pk}))
+        self.assertEqual(response.status_code, 302)
+        with self.assertRaises(Booking.DoesNotExist):
+            Booking.objects.get(pk=self.booking2.pk)
+
+        self.client.login(username='admin', password='adminPass')
+        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking1.pk}))
+        self.assertEqual(response.status_code, 302)
+        with self.assertRaises(Booking.DoesNotExist):
+            Booking.objects.get(pk=self.booking1.pk)
 
     
 
