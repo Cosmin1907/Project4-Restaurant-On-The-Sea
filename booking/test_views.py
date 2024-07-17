@@ -8,7 +8,7 @@ from datetime import date, timedelta
 
 
 # Create your tests here.
-# Part of the coude inspired by Source: 
+# Part of the code inspired by Source: 
 # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#the-test-client
 
 class TestBookingViews(TestCase):
@@ -64,6 +64,18 @@ class TestBookingViews(TestCase):
         self.assertTemplateUsed(response, 'booking/booking_list.html')
         self.assertContains(response, 'Made by: User Booking')
         self.assertNotContains(response, 'Made by: Admin Booking')
+
+    def test_booking_table_view(self):
+        self.client.login(username='user', password='userPass')
+        response = self.client.post(reverse('booking-table'), {
+            'name': 'New Booking',
+            'phone_number': '+40723974595',
+            'date': date.today() + timedelta(days=2),
+            'time_slot': 3,
+            'no_of_guests': 3,
+        })
+        self.assertEqual(response.status_code, 302) 
+        self.assertTrue(Booking.objects.filter(name='New Booking').exists())
 
 
         
