@@ -143,6 +143,12 @@ class TestBookingViews(TestCase):
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(pk=self.booking1.pk)
 
+    def test_custom_403_page(self):
+        self.client.login(username='user', password='userPass')
+        response = self.client.get(reverse('booking-update', kwargs={'pk': self.booking1.pk}))
+        self.assertEqual(response.status_code, 403)
+        self.assertTemplateUsed(response, '403.html')
+
     
 
 
