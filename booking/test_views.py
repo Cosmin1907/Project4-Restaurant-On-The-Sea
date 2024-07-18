@@ -63,7 +63,6 @@ class TestBookingViews(TestCase):
         # Log in as superuser and test
         self.client.login(username="admin", password="adminPass")
         response = self.client.get(reverse('booking-list'))
-        print(response.content.decode())
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'booking/booking_list.html')
         self.assertContains(response, 'Made by: Admin Booking')

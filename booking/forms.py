@@ -24,7 +24,8 @@ class BookingForm(forms.ModelForm):
             'booking_notes': 'Any additional information or requests.',
         }
 
-    #Code inspired and adapted from, source: https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other
+    #Code inspired and adapted from, source: 
+    # https://docs.djangoproject.com/en/5.0/ref/forms/validation/#cleaning-and-validating-fields-that-depend-on-each-other
     def clean(self):
         cleaned_data = super().clean()
         date = cleaned_data.get("date")
@@ -61,7 +62,17 @@ class BookingForm(forms.ModelForm):
             table_limit = 2
             table_number = random.randint(9, 10)
 
-        # Filter existing bookings for the given date and time slot and capacity
+        # Check if the booking is being updated 
+        # and if the number of guests has changed
+        if booking.pk:
+            existing_booking = Booking.objects.get(pk=booking.pk)
+            if existing_booking.no_of_guests != guests:
+                # Delete the current table assignment to trigger reassignment
+                if existing_booking.booked_table:
+                    existing_booking.booked_table.delete()
+                    booking.booked_table = None
+
+        # Filter existing bookings for the given date, time slot and capacity
         no_of_tables = Booking.objects.filter(date=booking.date, time_slot=booking.time_slot, booked_table__capacity=capacity).count()
 
         if not booking.booked_table:
