@@ -333,4 +333,15 @@ footer i:hover {
     border: 2px solid #cda45e;
   }
   
+.btn-regular {
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 25px;
+    line-height: 1;
+    color: white;
+    background-color: #cda45e;
+}
   
