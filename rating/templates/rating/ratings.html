@@ -2,12 +2,34 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .rating-list li {
+      float: right;
+      color: #ddd;
+      padding: 10px 5px;
+    }
+
+    .rating-list li:hover,
+    .rating-list li:hover ~ li {
+      color: orange;
+    }
+
+    .rating-list {
+      display: inline-block;
+      list-style: none;
+    }
+    .checked {
+        color: orange;
+    }
+
+    .card {
+        background-color: dimgray;
+    }
+</style>
 
     <div class="container" style="padding: 2em">
     {% for post in posts %}
         <div class="card" style="width: 30rem;">
-          <img class="card-img-top" style="max-height: 15rem; overflow: hidden"
-               src="/static/000107507.jpg" alt="Card image cap">
           <div class="card-body">
             <h5 class="card-title">{{ post.header }}</h5>
             <p class="card-text">{{ post.text }}</p>
