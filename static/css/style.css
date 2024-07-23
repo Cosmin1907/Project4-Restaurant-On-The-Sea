@@ -323,6 +323,9 @@ footer i:hover {
 #rating {
   padding: 2em;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rating-list li {
@@ -345,8 +348,9 @@ footer i:hover {
 }
 
 .card {
-    background-color: dimgray;
+    background-color: #4e4e4e;
     width: 40rem;
+    margin-bottom: 1em;
 }
 
 
