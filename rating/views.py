@@ -11,6 +11,7 @@ def index(request: HttpRequest) -> HttpResponse:
     return render(request, "rating/ratings.html", {"posts": posts})
 
 def rate(request: HttpRequest, post_id: int, rating: int) -> HttpResponse:
+    print(f"Received request to rate post {post_id} with rating {rating}")
     post = Post.objects.get(id=post_id)
     Rating.objects.filter(post=post, user=request.user).delete()
     post.rating_set.create(user=request.user, rating=rating)
