@@ -6,20 +6,21 @@
 <!-- index.html content starts here -->
  
 <section id="hero" class="d-flex align-items-center">
-    <div class="container position-relative text-center text-lg-start aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-      <div class="row">
-        <div class="col-lg-8">
-          <h1>Welcome to <span>Blue Horizon Café</span></h1>
-          <h2>Delivering great food for more than 10 years!</h2>
+  <div class="container position-relative text-center text-lg-start aos-init aos-animate" data-aos="zoom-in"
+    data-aos-delay="100">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1>Welcome to <span>Blue Horizon Café</span></h1>
+        <h2>See the high quality we provide through our amazing <a href="{% url 'ratings' %}" title="Check out our ratings"><span class="link-text">Ratings</span></a>!</h2>
 
-          <div class="btns">
-            <a href="{% url 'menu' %}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
-            <a href="{% url 'booking-table' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
-          </div>
+        <div class="btns">
+          <a href="{% url 'menu' %}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
+          <a href="{% url 'booking-table' %}" class="btn-book animated fadeInUp scrollto">Book a Table</a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <main id="main">
 
