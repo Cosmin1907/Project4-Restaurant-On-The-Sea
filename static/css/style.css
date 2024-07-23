@@ -230,8 +230,14 @@ footer i:hover {
 
 /* Individual booking entries */
 
+#bookings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 #bookings .card {
-    background: rgba(12, 11, 9, 0.8);
+    background: #4e4e4e;
 }
 
 #bookings h2 {
