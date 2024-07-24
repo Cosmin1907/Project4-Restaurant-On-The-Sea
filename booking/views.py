@@ -1,3 +1,4 @@
+from django.core.exceptions import PermissionDenied
 from .models import Booking
 from .forms import BookingForm
 from django.http import HttpResponseRedirect
@@ -10,12 +11,18 @@ from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.core.exceptions import ValidationError
 from django.contrib.auth.mixins import UserPassesTestMixin
+from django.core.exceptions import PermissionDenied
 
 
 # Create your views here.
 class BookingList(generic.ListView):
     model = Booking
     template_name = "booking/booking_list.html"
+    
+    def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            raise PermissionDenied
+        return super().dispatch(request, *args, **kwargs)
 
     def get_queryset(self):
         user = self.request.user

@@ -1,9 +1,12 @@
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import Rating, Post
 
 # Create your views here.
 def index(request: HttpRequest) -> HttpResponse:
+    if not request.user.is_authenticated:
+        raise PermissionDenied
     posts = Post.objects.all()
     for post in posts:
         rating = Rating.objects.filter(post=post, user=request.user).first()

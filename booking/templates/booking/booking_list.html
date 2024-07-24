@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% url 'account_login' as login_url %}
 
 {% block content %}
 
@@ -25,7 +26,12 @@
         </div>
     </div>
     {% endfor %}
+</div>
 
-    {% endif %}
+{% else %}
+<h2>You need to log in to see your bookings</h2>
+<p>Please <a href="{% url 'account_login' %}">log in</a> to access the bookings</p>
 
-    {% endblock %}
+{% endif %}
+
+{% endblock %}
