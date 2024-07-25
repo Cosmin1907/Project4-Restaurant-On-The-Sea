@@ -1,10 +1,10 @@
-from django.test import TestCase
-from .forms import BookingForm
 from datetime import date, timedelta
+from django.test import TestCase
 from freezegun import freeze_time 
+from .forms import BookingForm
+
 
 # Create your tests here.
-
 class TestBookingForm(TestCase):
 
      def test_form_is_valid(self):

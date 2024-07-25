@@ -1,17 +1,14 @@
 from django.core.exceptions import PermissionDenied
-from .models import Booking
-from .forms import BookingForm
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.views import generic, View
-from django.views.generic import TemplateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 from django.core.exceptions import ValidationError
 from django.contrib.auth.mixins import UserPassesTestMixin
-from django.core.exceptions import PermissionDenied
+from .models import Booking
+from .forms import BookingForm
 
 
 # Create your views here.

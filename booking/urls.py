@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path
-from .views import BookingList, BookingTable, BookingUpdate, BookingDelete, custom_403
+from .views import BookingUpdate, BookingDelete, custom_403
 
 urlpatterns = [
     path('list/', views.BookingList.as_view(), name='booking-list'),
