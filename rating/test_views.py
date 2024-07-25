@@ -12,7 +12,7 @@ class TestRateView(TestCase):
         )
         self.client = Client()
 
-    def test_rate_post(self):
+    def test_rate(self):
         self.client.login(username='testuser', password='testpassword')
         
         # Rate the post with 4
@@ -20,4 +20,10 @@ class TestRateView(TestCase):
         self.assertEqual(response.status_code, 200)
         rating = Rating.objects.get(post=self.post, user=self.user)
         self.assertEqual(rating.rating, 4)
+
+        # Rate the post with 3
+        response = self.client.get(reverse('rate', args=[self.post.id, 3]))
+        self.assertEqual(response.status_code, 200)
+        rating = Rating.objects.get(post=self.post, user=self.user)
+        self.assertEqual(rating.rating, 3)
     
