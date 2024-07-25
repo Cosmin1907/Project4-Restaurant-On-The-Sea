@@ -118,8 +118,7 @@ class TestBookingForm(TestCase):
          'time_slot': 1, 
          'no_of_guests': 1
         })
-        if form.is_valid():
-            print("Form errors:", form.errors)
+            
         self.assertFalse(
             form.is_valid(),
             msg="The phone format is incorect, but the form is valid"
