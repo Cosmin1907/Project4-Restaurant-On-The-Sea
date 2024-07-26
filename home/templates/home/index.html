@@ -20,7 +20,11 @@
     <div class="row">
       <div class="col-lg-8">
         <h1>Welcome to <span>Blue Horizon Café</span></h1>
+        {% if user.is_authenticated %}
         <h2>See the high quality we provide through our amazing <a href="{% url 'ratings' %}" title="Check out our ratings"><span class="link-text">Ratings</span></a>!</h2>
+        {% else %}
+        <h2>If you want to rate our services please <a href="{% url 'account_login' %}">Login</a>!</h2>
+        {% endif %}
 
         <div class="btns">
           <a href="{% url 'menu' %}" class="btn-menu animated fadeInUp scrollto">Our Menu</a>
