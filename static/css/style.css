@@ -267,6 +267,22 @@ footer i:hover {
 /*--------------------------------------------------------------
 # Menu Section
 --------------------------------------------------------------*/
+
+.section-title {
+  text-align: center;
+}
+
+.menu-category h3 {
+  margin-left: 85px;
+  margin-top: 20px; 
+  position: relative;
+  border-bottom: 1px solid rgba(97, 77, 39, 0.6);
+}
+
+.menu-category {
+  margin-bottom: 20px;
+}
+
 .menu .menu-item {
     margin-top: 50px;
   }
