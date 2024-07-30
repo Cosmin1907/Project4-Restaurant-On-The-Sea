@@ -82,9 +82,6 @@ footer i:hover {
     text-decoration: none;
 }
 
-footer p {
-  margin-bottom: 15px !important;
-}
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -417,4 +414,16 @@ footer p {
     color: white;
     background-color: #cda45e;
 }
-  
+
+.btn-danger-custom {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 12px 30px;
+  border-radius: 25px;
+  line-height: 1;
+  color: white;
+  background-color: #dc3545; 
+  border-color: #dc3545; 
+}
