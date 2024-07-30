@@ -82,6 +82,10 @@ footer i:hover {
     text-decoration: none;
 }
 
+footer p {
+  margin-bottom: 15px !important;
+}
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
