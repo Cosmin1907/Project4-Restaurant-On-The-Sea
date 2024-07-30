@@ -313,7 +313,7 @@ footer i:hover {
     top: -4px;
     z-index: 1;
     color: #bab3a6;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
   
   .menu .menu-content a {
@@ -381,7 +381,7 @@ footer i:hover {
 
 .card {
     background-color: #4e4e4e;
-    width: 40rem;
+    width: 95%;
     margin-bottom: 1em;
 }
 
