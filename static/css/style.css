@@ -347,6 +347,14 @@ footer i:hover {
     color: rgba(255, 255, 255, 0.5);
   }
   
+@media(max-width: 768px) {
+    .menu .menu-content,
+    .menu-category h3,
+    .menu .menu-ingredients {
+        margin-left: 15px;
+    }
+  }
+
 
 /*--------------------------------------------------------------
 # Ratings
@@ -426,4 +434,12 @@ footer i:hover {
   color: white;
   background-color: #dc3545; 
   border-color: #dc3545; 
+}
+
+@media (max-width: 320px) {
+  .btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
