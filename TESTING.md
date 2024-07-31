@@ -218,6 +218,8 @@ Actual:
 Website behaved as expected.
 
 Website was also opened on the following devices and no responsive issues were seen:
+Iphone SE
+Ipad
 
 
 

@@ -8,12 +8,18 @@ from .models import Booking
 
 
 # Create your tests here.
-# Part of the code inspired by Source: 
+# Part of the code inspired by Source:
 # https://docs.djangoproject.com/en/5.0/topics/testing/tools/#the-test-client
 # https://docs.python.org/3/library/unittest.html#unittest.TestCase.assertRaises
 
 class TestBookingViews(TestCase):
+    """
+    Test case for booking-related views.
+    """
     def setUp(self):
+        """
+        Set up test environment with sample users and bookings.
+        """
         self.client = Client()
 
         # Create a superuser
@@ -60,6 +66,9 @@ class TestBookingViews(TestCase):
             self.booking2.save()
 
     def test_booking_list_view(self):
+        """
+        Test booking list view for different user types.
+        """
         # Log in as superuser and test
         self.client.login(username="admin", password="adminPass")
         response = self.client.get(reverse('booking-list'))
@@ -79,6 +88,9 @@ class TestBookingViews(TestCase):
         self.assertNotContains(response, 'Capacity: 2')
 
     def test_booking_table_view(self):
+        """
+        Test booking creation.
+        """
         self.client.login(username='user', password='userPass')
         response = self.client.post(reverse('booking-table'), {
             'name': 'New Booking',
@@ -87,27 +99,33 @@ class TestBookingViews(TestCase):
             'time_slot': 3,
             'no_of_guests': 3,
         })
-        self.assertEqual(response.status_code, 302) 
+        self.assertEqual(response.status_code, 302)
         self.assertTrue(Booking.objects.filter(name='New Booking').exists())
 
     def test_user_update_booking(self):
+        """
+        Test booking update by a regular user.
+        """
         self.client.login(username='user', password='userPass')
         response = self.client.post(
-        reverse('booking-update', kwargs={'pk': self.booking2.pk}),
-        {
-            'name': 'Updated by User',
-            'phone_number': '+40723974594',
-            'date': date.today() + timedelta(days=4),
-            'time_slot': 4,
-            'no_of_guests': 4,
-        }
-    )
+            reverse('booking-update', kwargs={'pk': self.booking2.pk}),
+            {
+                'name': 'Updated by User',
+                'phone_number': '+40723974594',
+                'date': date.today() + timedelta(days=4),
+                'time_slot': 4,
+                'no_of_guests': 4,
+            }
+        )
         self.assertEqual(response.status_code, 302)
-        self.booking2.refresh_from_db()  
+        self.booking2.refresh_from_db()
         self.assertEqual(self.booking2.name, 'Updated by User')
         self.assertEqual(self.booking2.booked_table.capacity, 4)
 
     def test_superuser_update_booking(self):
+        """
+        Test booking update by a superuser.
+        """
         self.client.login(username='admin', password='adminPass')
         response = self.client.post(
             reverse('booking-update', kwargs={'pk': self.booking2.pk}),
@@ -125,33 +143,53 @@ class TestBookingViews(TestCase):
         self.assertEqual(self.booking2.booked_table.capacity, 6)
 
     def test_regular_user_delete_booking(self):
+        """
+        Test booking deletion by a regular user.
+        """
         self.client.login(username='user', password='userPass')
-        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking2.pk}))
+        response = self.client.post(
+            reverse(
+                'booking-delete',
+                kwargs={
+                    'pk': self.booking2.pk}))
         self.assertEqual(response.status_code, 302)
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(pk=self.booking2.pk)
 
     def test_superuser_delete_booking(self):
-        #Superuser can delete any booking
+        """
+        Test booking deletion by a superuser.
+        """
+        # Superuser can delete any booking
         self.client.login(username='admin', password='adminPass')
-        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking2.pk}))
+        response = self.client.post(
+            reverse(
+                'booking-delete',
+                kwargs={
+                    'pk': self.booking2.pk}))
         self.assertEqual(response.status_code, 302)
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(pk=self.booking2.pk)
 
         self.client.login(username='admin', password='adminPass')
-        response = self.client.post(reverse('booking-delete', kwargs={'pk': self.booking1.pk}))
+        response = self.client.post(
+            reverse(
+                'booking-delete',
+                kwargs={
+                    'pk': self.booking1.pk}))
         self.assertEqual(response.status_code, 302)
         with self.assertRaises(Booking.DoesNotExist):
             Booking.objects.get(pk=self.booking1.pk)
 
     def test_custom_403_page(self):
+        """
+        Test custom 403 error page for unauthorized actions.
+        """
         self.client.login(username='user', password='userPass')
-        response = self.client.get(reverse('booking-update', kwargs={'pk': self.booking1.pk}))
+        response = self.client.get(
+            reverse(
+                'booking-update',
+                kwargs={
+                    'pk': self.booking1.pk}))
         self.assertEqual(response.status_code, 403)
         self.assertTemplateUsed(response, '403.html')
-
-    
-
-
-        

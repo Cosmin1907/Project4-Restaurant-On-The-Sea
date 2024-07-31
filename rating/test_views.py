@@ -3,8 +3,15 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import Post, Rating
 
+
 class TestRateView(TestCase):
+    """
+    Test for rating a post.
+    """
     def setUp(self):
+        """
+        Set up the test environment with a user, a post, and a test client.
+        """
         self.user = User.objects.create_user(username='testuser', password='testpassword')
         self.post = Post.objects.create(
             header='Test Header',
@@ -13,6 +20,9 @@ class TestRateView(TestCase):
         self.client = Client()
 
     def test_rate(self):
+        """
+        Test rating functionality by checking rating creation and update.
+        """
         self.client.login(username='testuser', password='testpassword')
         
         # Rate the post with 4
