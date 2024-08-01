@@ -174,16 +174,21 @@ Testing was conducted on the footer links by clicking all the Font Awesome socia
 
 Tests were performed on the create booking to ensure that:
 
-1. A customer cannot book a date in the past
+1. Booking a past date is not allowed.
+2. Booking a time slot that has already passed today is not allowed.
+3. Booking is prevented if there are no available tables for the guest count.
+4. Editing a booking to increase the guest size is restricted if no tables have sufficient capacity.
+5. Forms cannot be submitted with required fields left empty.
+6. The form correctly validates the phone number format.
 
 
 ## Unit Testing
 
-Unit tests were created to verify basic functionality, including template usage and redirects. These tests, which evaluate the form functionality, programming logic, and page display according to the logic, can be found in the test_forms.py and test_views.py files within the respective apps.
+Unit tests were created to verify core functionality, such as template usage and redirects. These tests, covering form functionality, programming logic, and page display, are located in the test_forms.py and test_views.py files within the respective apps.
 
 Results:
 
-![unit tests]()
+![unit tests](docs/testing_img/tests.PNG)
 
 ## Accessibility
 
