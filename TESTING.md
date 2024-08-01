@@ -184,7 +184,7 @@ Tests were performed on the create booking to ensure that:
 
 ## Unit Testing
 
-Unit tests were created to verify core functionality, such as template usage and redirects. These tests, covering form functionality, programming logic, and page display, are located in the test_forms.py and test_views.py files within the respective apps.
+Unit tests were created to verify core functionality, such as template usage and redirects. These tests, covering form functionality, programming logic, and page display, are located in the test_forms.py and test_views.py files within the respective apps.`
 
 Results:
 
@@ -208,10 +208,11 @@ Testing was focused to ensure the following criteria were met:
 ## Validator Testing
 
 All pages were run through the [w3 HTML Validator](https://validator.w3.org/). 
+Initially, there were errors due to trailing slashes and unclosed elements. All these issues were corrected
 
-Due to the secured views, pages with login required or a secured view cannot be validated by direct URI. To test the validation on the files, open the page to validate, right click and view page source. Paste the raw html code into the validator as this will be only the HTML rendered code.
+Due to the secured views, pages with login required or a secured view cannot be validated by direct URI. To test the validation on these files, open the page to validate, right-click and view page source. Paste the raw HTML code into the validator, as this will be only the HTML rendered code.
 
-![HTML Validator]()
+![HTML Validator](docs/testing_img/html_validator.PNG)
 
 All pages were run through the official [Pep8](http://pep8online.com/) validator to ensure all code was pep8 compliant, with the exception of the settings.py file.
 
