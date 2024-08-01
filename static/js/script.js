@@ -11,4 +11,4 @@ const rate = (rating, post_id) => {
             window.location.reload();
         }
     });
-}
+};
