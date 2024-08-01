@@ -8,17 +8,22 @@ Ensure a user can sign up to the website
 
 Steps:
 
-1. Navigate to [Restaurant-On-The-Sea]() and click Register
-2. Enter email, username and password 
+1. Navigate to [Restaurant-On-The-Sea](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/) and click Register
+2. Enter username, password, and email (as an optional fiel) 
 3. Click Sign up
 
 Expected:
 
+- A message is displayed: Successfully signed in as testuser.
+- The user is redirected to the home page as a signed-in user.
+- The menu options display Logout instead of Register and Login.
 
 
 Actual: 
 
-
+- A message is displayed: Successfully signed in as testuser.
+- The user is redirected to the home page as a signed-in user.
+- The menu options display Logout instead of Register and Login.
 
 <hr>
 
@@ -27,17 +32,21 @@ Description:
 Ensure a user can log in once signed up
 
 Steps:
-1. Navigate to [Restaurant-On-The-Sea]()
+1. Navigate to [Restaurant-On-The-Sea](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/) and click Login
 2. Enter login details created in previous test case
-3. Click SIGN IN
+3. Click sign in
 
 Expected:
 
-
+- A message is displayed: Successfully signed in as testuser.
+- The user is redirected to the home page as a signed-in user.
+- The menu options display Logout instead of Register and Login.
 
 Actual:
 
-
+- A message is displayed: Successfully signed in as testuser.
+- The user is redirected to the home page as a signed-in user.
+- The menu options display Logout instead of Register and Login.
 
 <hr>
 
@@ -49,15 +58,19 @@ Steps:
 
 1. Login to the website
 2. Click the logout button
-3. Click SIGN OUT on the confirm logout page
+3. Click sign out on the confirm logout page
 
 Expected:
 
-
+- A message is displayed: You have signed out.
+- The user is redirected to the home page.
+- The menu options are updated to display Register and Login, and no longer show Logout.
 
 Actual:
 
-
+- A message is displayed: You have signed out.
+- The user is redirected to the home page.
+- The menu options are updated to display Register and Login, and no longer show Logout.
 
 **Booking Forms**
 
@@ -67,22 +80,25 @@ Ensure a new booking can be created.
 
 Steps:
 
-1. Navigate to [page]() - Login if prompted.
+1. Navigate to [Restaurant-On-The-Sea](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/) - and Login.
+2. Click Book a Table
 2. Enter the following:
-    - Name: 
-    
+    - Name: Cosmin
+    - Phone No: E.164 complient format number
     - Date: Any future date
-    - No Of Guests: 
+    - Time slot: Any future drop down field
+    - No Of Guests: 2
+    - Booking notes (as an optional field)
 
 3. Click book
 
 Expected:
 
-
+- Form successfully submits and a message is shown to alert the user of successful booking.
 
 Actual:
 
-
+- Form successfully submits and a message is shown to alert the user of successful booking.
 
 <hr> 
 
@@ -92,15 +108,24 @@ Ensure a booking can be edited.
 
 Steps:
 
-1. Navigate to [page]() - Login if prompted.
-2. Enter the following:
-   
+1. Navigate to [Restaurant-On-The-Sea](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/) - and Login.
+2. Click on Bookings
+3. Click on Edit
+4. Enter the following:
+    - Name: Cosmin
+    - Phone No: E.164 complient format number.
+    - Date: Any future date
+    - Time slot: Any future drop down field
+    - No Of Guests: 5
+    - Booking notes (as an optional field)
 
 Expected:
 
+- Form successfully submits and a message is shown to alert the user of updated booking.
 
 Actual:
 
+- Form successfully submits and a message is shown to alert the user of updated booking.
 
 <hr>
 
@@ -110,20 +135,19 @@ Ensure user can successfully delete a booking.
 
 Steps:
 1. Login as a user with a booking or create a new booking
+2. Click on Bookings
+3. Click the delete button on a booking
+4. Click the confirm button on the delete page
 
 Expected:
 
-
+- Booking is successfully deleted
 
 Actual:
 
-
+- Booking is successfully deleted
 
 <hr>
-
-**Menu Page**
-
-
 
 **Navigation Links**
 
