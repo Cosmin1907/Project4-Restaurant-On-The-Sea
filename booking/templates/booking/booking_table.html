@@ -21,11 +21,19 @@
                 {{ form|crispy }}
                 <button type="submit" class="btn btn-regular">{{ form.instance.pk|yesno:"Save Changes,Book" }}</button>
             </form>
-            {% else %}
+        </div>
+    </div>
+</div>
+
+{% else %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 offset-md-2">
             <h2>You need to log in to book a table.</h2>
             <p>Please <a href="{% url 'account_login' %}">log in</a> to access the booking form.</p>
         </div>
     </div>
+</div>
     {% endif %}
 
     {% endblock %}
