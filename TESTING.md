@@ -154,8 +154,10 @@ Actual:
 Testing was conducted to ensure that all navigation links on the respective pages directed to the correct destinations as per the design. This was verified by clicking on the navigation links on each page.
 
 - Home -> index.html
-
-
+- Menu -> menu.html
+- Bookings -> booking_list.html
+- Book a Table -> booking_table.html
+- Ratings -> ratings.html
 - Logout -> Sign out all auth page
 - Login -> Sign in all auth page
 - Register -> Sign up all auth page
