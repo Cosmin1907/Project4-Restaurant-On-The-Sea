@@ -1,9 +1,9 @@
-# Restaurant By the Sea
+# Restaurant Blue Horizon
+Blue Horizon Café is a fictional seaside restaurant offering a charming dining experience. This Django app provides a robust booking system for users to reserve tables and manage their bookings. Additionally, it features a review system for customers to rate and share feedback on their dining experience. The application ensures a user-friendly interface for both customers and staff to handle reservations and reviews efficiently.
 
+The live link can be found here: [Live Site ](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/)
 
-The live link can be found here: [Live Site ]()
-
-![Mock Up]()
+![Mock Up](docs/readme_img/mockup.PNG)
 
 ## Table of Contents
 
