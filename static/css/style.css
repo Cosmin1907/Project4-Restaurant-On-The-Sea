@@ -413,7 +413,7 @@ footer i:hover {
     transition: 0.3s;
     line-height: 1;
     color: white;
-    border: 2px solid #b68a50;
+    border: 2px solid #9c7744;
   }
   
 .btn-regular {
@@ -425,7 +425,7 @@ footer i:hover {
     border-radius: 25px;
     line-height: 1;
     color: white;
-    background-color: #b68a50;
+    background-color: #9c7744;
 }
 
 .btn-danger-custom {
