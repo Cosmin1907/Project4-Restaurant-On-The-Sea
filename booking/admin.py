@@ -11,7 +11,10 @@ class BookingAdmin(admin.ModelAdmin):
     - date
     - time_slot
     """
-    list_display = ['name', 'phone_number', 'user', 'date', 'time_slot', 'no_of_guests', 'booked_table', 'booking_notes']
+    list_display = [
+        'name', 'phone_number', 'user', 'date', 'time_slot',
+        'no_of_guests', 'booked_table', 'booking_notes'
+    ]
     list_filter = ['date', 'time_slot']
 
 

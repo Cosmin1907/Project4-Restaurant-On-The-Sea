@@ -34,9 +34,16 @@ class BookingForm(forms.ModelForm):
         }
         help_texts = {
             'name': 'Enter your full name.',
-            'phone_number': 'Enter your phone number in the format: +123456789.',
-            'date': 'Select the booking date. Date cannot be in the past.',
-            'time_slot': 'Select a time slot for your booking. Start time must be in the future',
+            'phone_number': (
+                'Enter your phone number in the format: +123456789.'
+            ),
+            'date': (
+                'Select the booking date. Date cannot be in the past.'
+            ),
+            'time_slot': (
+                'Select a time slot for your booking. Start time must be '
+                'in the future.'
+            ),
             'no_of_guests': 'Enter the number of guests.',
             'booking_notes': 'Any additional information or requests.',
         }
@@ -117,8 +124,8 @@ class BookingForm(forms.ModelForm):
         if not booking.booked_table:
             if no_of_tables >= table_limit:
                 raise ValidationError(
-                    f"No tables available for {
-                        booking.no_of_guests} guests the selected time interval")
+                    f"No tables available for {booking.no_of_guests} guests "
+                    "the selected time interval")
 
             table = Table.objects.create(
                 table_number=table_number, capacity=capacity)

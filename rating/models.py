@@ -16,7 +16,8 @@ class Post(models.Model):
         """
         Calculate the average rating for the post.
         """
-        return Rating.objects.filter(post=self).aggregate(Avg("rating"))["rating__avg"] or 0
+        avg_rating = Rating.objects.filter(post=self).aggregate(Avg("rating"))
+        return avg_rating["rating__avg"] or 0
 
     def __str__(self):
         """

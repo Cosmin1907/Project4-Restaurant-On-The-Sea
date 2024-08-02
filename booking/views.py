@@ -57,7 +57,7 @@ class BookingTable(View):
             # https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Forms
             try:
                 booking = form.save(commit=False)
-                booking.user = request.user  # Set the user field to the currently logged-in user
+                booking.user = request.user
                 booking.save()
                 messages.success(self.request, "Booking successfully created!")
                 return redirect("booking-list")
@@ -97,7 +97,7 @@ class BookingUpdate(UserPassesTestMixin, UpdateView):
 # https://docs.djangoproject.com/en/4.2/ref/class-based-views/generic-editing/#deleteview
 class BookingDelete(UserPassesTestMixin, DeleteView):
     """
-    View to delete an existing booking. 
+    View to delete an existing booking.
     Accessible only to the booking owner or staff.
     """
     model = Booking

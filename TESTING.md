@@ -214,10 +214,10 @@ Due to the secured views, pages with login required or a secured view cannot be 
 
 ![HTML Validator](docs/testing_img/html_validator.PNG)
 
-All pages were run through the official [Pep8](http://pep8online.com/) validator to ensure all code was pep8 compliant, with the exception of the settings.py file.
+All pages were run through the CI Python Linter [Pep8](https://pep8ci.herokuapp.com/) validator to ensure all code was pep8 compliant, with the exception of the settings.py file.
 
 
-![PEP8]()
+![PEP8](docs/testing_img/pep8.PNG)
 
 JavaScript code was run through [JSHINT](https://jshint.com) javascript validator. 
 Warnings about ES6 features in the JavaScript file were found and addressed by adding the comment /* jshint esversion: 6 */ at the top of the file.
@@ -227,9 +227,9 @@ The only warning that remained was about an unused variable. The function was ca
 
 ## Lighthouse Report
 
+Lighthouse report highlighted SEO and performance issues. Added meta descriptions and keywords to boost SEO to 100. Improved performance by reducing image size.
 
-
-![Lighthouse v1]()
+![Lighthouse v1](docs/testing_img/lighthouse.PNG)
 
 ## Responsiveness
 
@@ -237,7 +237,7 @@ All pages were tested to ensure responsiveness on screen sizes from 320px and up
 
 Steps to test:
 
-- Open browser and navigate to [Restaurant-On-The-Sea]()
+- Open browser and navigate to [Restaurant-On-The-Sea](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/)
 - Open the developer tools (right click and inspect)
 - Set to responsive and decrease width to 320px
 - Set the zoom to 50%
@@ -255,7 +255,6 @@ Website was also opened on the following devices and no responsive issues were s
 Iphone SE
 Ipad Pro
 
-
-
 ## Bugs
 
+A bug involved creating a duplicate table instance upon update, leading to extra table instances for the booking. This was fixed by introducing code to delete the existing table instance before recreating it when the booking was updated.

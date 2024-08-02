@@ -8,7 +8,11 @@ from django.core.validators import RegexValidator
 # https://stackoverflow.com/questions/19130942/whats-the-best-way-to-store-a-phone-number-in-django-models
 phone_validator = RegexValidator(
     regex=r'^(?:\+|00)[1-9]\d{9,14}$',
-    message="Phone number must be entered in the format: '+<country code><number>' or '00<country code><number>'. Up to 15 digits allowed, with a minimum of 10 digits required."
+    message=(
+        "Phone number must be entered in the format: '+<country code><number>'"
+        "or '00<country code><number>'. Up to 15 digits allowed, with a "
+        "minimum of 10 digits required."
+    )
 )
 
 # Time slots for booking
