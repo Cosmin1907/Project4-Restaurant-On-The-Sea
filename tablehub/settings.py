@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-cosmin1907-project4rest-oxcpb8bjt2c.ws.codeinstitute-ide.net',
@@ -114,8 +114,6 @@ DATABASES = {
 
 if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
-
-
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.herokuapp.com',

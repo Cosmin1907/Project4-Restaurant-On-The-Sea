@@ -2,9 +2,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Avg
 
+
 # Create your models here.
 # Source: https://medium.com/p/e1deff03bb1c
-
 class Post(models.Model):
     """
     Represents a post with a header and text.

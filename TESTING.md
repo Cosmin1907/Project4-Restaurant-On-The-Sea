@@ -220,8 +220,10 @@ All pages were run through the official [Pep8](http://pep8online.com/) validator
 ![PEP8]()
 
 JavaScript code was run through [JSHINT](https://jshint.com) javascript validator. 
+Warnings about ES6 features in the JavaScript file were found and addressed by adding the comment /* jshint esversion: 6 */ at the top of the file.
+The only warning that remained was about an unused variable. The function was called via onclick from an HTML element, so it is in fact being used.
 
-![JS validator]()
+![JS validator](docs/testing_img/js.PNG)
 
 ## Lighthouse Report
 
@@ -251,7 +253,7 @@ Website behaved as expected.
 
 Website was also opened on the following devices and no responsive issues were seen:
 Iphone SE
-Ipad
+Ipad Pro
 
 
 
