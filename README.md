@@ -21,8 +21,21 @@ Additionally, the site aims to offer customers a simple, hassle-free way to make
 
 ### Agile Planning
 
+This project followed agile methodologies, delivering features in three evenly spaced sprints over four weeks.
 
-![Kanban image]()
+Tasks were organized into user stories and prioritized as "Must have," "Should have," and "Could have." These were assigned to sprints and evaluated for complexity. Priority was given to "Must have" stories to ensure core requirements were met, followed by "Should have" and "Could have" stories if time permitted.
+
+I created two Kanban boards using GitHub Projects: one for user stories and another specifically for tasks the developer needs to complete. These boards provide detailed information on project cards. All user stories, except documentation tasks, include acceptance criteria to clearly define completion requirements.
+
+Thye can be located here: 
+
+- [User Stories](https://github.com/users/Cosmin1907/projects/4)
+
+- [Developer Board](https://github.com/users/Cosmin1907/projects/6/views/1)
+
+![Kanban image](docs/readme_img/kanban_user.PNG)
+
+![Kanban image](docs/readme_img/kanban_dev.PNG)
 
 #### Epics
 
