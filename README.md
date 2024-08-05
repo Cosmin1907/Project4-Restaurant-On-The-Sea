@@ -37,7 +37,41 @@ Thye can be located here:
 
 ![Kanban image](docs/readme_img/kanban_dev.PNG)
 
-#### Epics
+#### Milestones
+
+The project had 8 main milestones:
+
+**Milestone 1 - Base Setup**
+
+The base setup milestone covered all tasks needed for the initial setup of the application. As the foundation for the entire project, it was the first to be completed since all other features depended on it.
+
+**Milestone 2 - Standalone Pages**
+
+This milestone included small pages that didn't have enough tasks to warrant their own milestones. Instead of creating separate milestones for these minor features, they were grouped together under this one.
+
+**Milestone 3 - Authentication**
+
+This milestone focused on tasks related to registration, login, and authorization. It was crucial for securing the application, ensuring that only staff could manage bookings while regular users had restricted access.
+
+**Milestone 4 - Booking**
+
+This milestone included all tasks related to creating, viewing, updating, and deleting bookings. It allowed staff to manage upcoming bookings and customers to book and manage their own reservations.
+
+**Milestone 5 - Deployment**
+
+This milestone covered all tasks necessary for deploying the app to Heroku, ensuring the site was live for both staff and customer use.
+
+**Milestone 6 - Review System**
+
+The review system milestone was a last-minute addition based on the remaining development time. It involves implementing a system that allows users to provide feedback on the restaurant's services, aiming to gather customer reviews and ratings to improve service quality and user experience.
+
+**Milestone 7 - Unit Testing**
+
+The unit testing milestone includes the creation of unit tests to verify core functionality. These tests cover essential aspects such as template usage, redirects, form functionality, programming logic, and page display to ensure that the application performs as expected.
+
+**Milestone 8 - Documentation**
+
+This milestone was dedicated to documenting the software development lifecycle of the application. It aimed to provide comprehensive documentation, detailing all stages of development and necessary information for running, deploying, and using the application.
 
 
 ## The-Scope-Plane
