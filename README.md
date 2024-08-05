@@ -14,6 +14,10 @@ The live link can be found here: [Live Site ](https://project4-restaurant-bookin
 
 ### Site-Goals
 
+The site is designed to assist restaurant staff in efficiently tracking upcoming bookings and managing capacity, allowing for easy editing and deletion as necessary.
+
+Additionally, the site aims to offer customers a simple, hassle-free way to make reservations without the need to call the restaurant. Customers will also be able to cancel or update their bookings as needed. Furthermore, the site provides an option for customers to review the restaurant's services, enabling valuable feedback that can help improve the overall dining experience.
+
 
 ### Agile Planning
 
@@ -29,6 +33,25 @@ The live link can be found here: [Live Site ](https://project4-restaurant-bookin
 ## The-Structure-Plane
 
 ### Features
+
+Navbar Description
+The navbar provides a responsive navigation solution for users to access various sections of the website, ensuring an optimal experience across different devices. Here’s a detailed description of its features:
+
+Navigation Toggle Button:
+
+A navbar-toggler button is visible on smaller screens. It allows users to toggle the visibility of the navigation menu.
+The button is styled with a custom appearance and uses Bootstrap’s built-in functionality for collapsing the navbar on mobile devices.
+Navbar Links:
+
+Home: Always visible to all users. 
+Menu: Always visible to all users. Highlights as the active link when the user is on the menu page.
+Bookings: Shown only to logged-in users. Highlights as the active link when the user is on the bookings page.
+The navbar uses authentication-based visibility for links: Register and Login are shown to non-logged-in users, while Logout is visible to logged-in users. The active link is highlighted based on the current page.
+The links highlight as the active links when the user is on the page
+
+Additional Link:
+
+Book a Table: Provides a link to a form where users can book a table. This link is styled separately and is accessible for users on larger screens.
 
 
 Implementation:
