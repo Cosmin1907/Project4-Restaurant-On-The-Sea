@@ -37,7 +37,7 @@ Thye can be located here:
 
 ![Kanban image](docs/readme_img/kanban_dev.PNG)
 
-#### Milestones
+### Milestones
 
 The project had 8 main milestones:
 
@@ -76,111 +76,124 @@ This milestone was dedicated to documenting the software development lifecycle o
 
 ## The-Scope-Plane
 
+* Responsive Design - The site should be fully functional on all devices with a minimum width of 320px.
+* Hamburger Menu - Implement a hamburger menu for mobile devices.
+* CRUD Functionality - Enable Create, Read, Update, and Delete operations Bookings.
+* Role-Based Restrictions - Implement features with access control based on user roles.
+* Home Page - Include a home page that displays restaurant information.
 
 ## The-Structure-Plane
 
 ### Features
 
-Navbar Description
+**Navigation Menu**
+
 The navbar provides a responsive navigation solution for users to access various sections of the website, ensuring an optimal experience across different devices. Here’s a detailed description of its features:
 
-Navigation Toggle Button:
-
-A navbar-toggler button is visible on smaller screens. It allows users to toggle the visibility of the navigation menu.
-The button is styled with a custom appearance and uses Bootstrap’s built-in functionality for collapsing the navbar on mobile devices.
 Navbar Links:
 
-Home: Always visible to all users. 
-Menu: Always visible to all users. Highlights as the active link when the user is on the menu page.
-Bookings: Shown only to logged-in users. Highlights as the active link when the user is on the bookings page.
-The navbar uses authentication-based visibility for links: Register and Login are shown to non-logged-in users, while Logout is visible to logged-in users. The active link is highlighted based on the current page.
+* Home: Always visible to all users. 
+* Menu: Always visible to all users. Highlights as the active link when the user is on the menu page.
+* Bookings: Shown only to logged-in users. Highlights as the active link when the user is on the bookings page.
+* The navbar uses authentication-based visibility for links: Register and Login are shown to non-logged-in users, while Logout is visible to logged-in users. The active link is highlighted based on the current page.
 The links highlight as the active links when the user is on the page
 
 Additional Link:
 
-Book a Table: Provides a link to a form where users can book a table. This link is styled separately and is accessible for users on larger screens.
+* Book a Table: Provides a link to a form where users can book a table. This link is styled separately and is accessible for users on larger screens. 
 
+The navigation menu is visible on all pages and converts into a hamburger menu on smaller devices. This design ensures users can navigate the site easily across all devices while saving space on mobile screens.
 
-Implementation:
-
-**Navigation Menu**
-
-
-![Navbar]()
-
-
-Implementation:
+![Navbar](docs/readme_img/nav_bar.PNG)
 
 **Home Page**
 
+The home page is designed to effectively introduce Blue Horizon Café and provide easy access to key functionalities:
 
-![Hero Image]()
+*Hero Section:*
+This section features a welcoming message and two main buttons: 'Our Menu' and 'Book a Table.' Authenticated users are prompted to check out the café's ratings, while non-logged-in users are encouraged to log in to rate the services.
 
-![Welcome Section]()
+*About Section:*
+Below the hero section, the 'About' section includes a detailed description of Blue Horizon Café. It highlights the café's serene coastal setting and fresh, local cuisine. An accompanying image of the restaurant enhances this description, providing a visual sense of the café's ambiance and offerings.
 
-![Find Us]()
+*Contact Section:*
+The contact information is clearly presented, including:
+Location: Address of the café.
+Open Hours: Business hours for planning visits.
+Email: Contact email for inquiries.
+Phone: Contact number for reservations and questions.
+This layout ensures users quickly understand the café’s offerings, navigate the site efficiently, and access essential contact details.
 
-Implementation:
+![Hero Section](docs/readme_img/hero_section.PNG)
+
+![About Section](docs/readme_img/about_section.PNG)
+
+![Contact Section](docs/readme_img/contact_section.PNG)
 
 **Footer**
 
-![Footer]()
+- The footer section of the site provides a simple yet effective way for users to connect with the café on social media.
+- The footer includes icons linking to the café's social media profiles. 
+- Each icon is designed to open the corresponding social media page in a new tab, ensuring users can easily stay connected and up-to-date with the café's latest news and updates. 
+- The icons are styled for clear visibility and spaced to ensure easy interaction.
 
+![Footer](docs/readme_img/footer.PNG)
 
-Implementation:
 
 **Menu Page**
 
-![Menu]()
+The Menu page showcases the diverse culinary offerings of Blue Horizon Café. It is organized into categories including Starters, Main Courses, Sides, Desserts, and Beverages. Each section highlights a selection of dishes and drinks, providing detailed descriptions and prices. The page is designed to make it easy for users to explore and select from the café's delicious menu options.
 
+![Menu](docs/readme_img/menu.PNG)
 
-Implementation:
+**Bookins page**
 
+The Booking page allows users to either book a table or edit an existing reservation. If a user is logged in, they can fill out and submit a form to either make a new booking or update an existing one. The page dynamically updates the form's title and button text based on whether it's a new booking or an edit. For users who are not logged in, the page prompts them to log in to access the booking form.
 
-**Create booking page**
+**Create booking**
 
-![Create Booking]()
+Users can fill out a form to make a new table reservation.
 
-
-Implementation:
-
-**Manage bookings page**
-
-![Manage Bookings]()
-
-
-Implementation:
+![Create Booking](docs/readme_img/new_booking.PNG)
 
 **Edit Booking Page**
 
-![Edit Booking]()
+ Users can modify details of an existing reservation through the same form.
 
-Implementation:
+![Edit Booking](docs/readme_img/edit_booking.PNG)
 
-**Toasts**
+**Manage Bookings**
 
-Custom toasts were implemented on the successful creation and editing of bookings. This will provide feedback to the user to relay information that the booking was successfully received or updated.
+Authenticated users can view and manage their bookings on this page. It displays a list of all their reservations with details such as the name, number of guests, date, and any personal notes. If the user is a staff member, additional information about the table and its capacity is also shown. Each booking includes options to edit or delete the reservation.
 
-![Booking Toasts]()
+![Manage Bookings](docs/readme_img/manage_bookings.PNG)
 
-``text here``
+**Booking Notifications**
 
-Implementation:
+Custom notifications were implemented for the successful creation and editing of bookings. These notifications provide feedback to users, confirming that their booking was successfully received or updated.
+
+![Booking Notifications](docs/readme_img/update.PNG)
 
 **Delete Booking Page**
 
-![Delete Booking]()
+This page asks the user to confirm the deletion of a booking, ensuring they want to proceed with removing it.
+
+![Delete Booking](docs/readme_img/delete.PNG)
 
 Favicon
 
-![Favicon]()
+It helps users identify the website when multiple tabs are open.
+
+![Favicon](docs/readme_img/favicon.PNG)
 
 **Error Pages**
 
-
-Implementation:
-
 **403 Page**
+
+- Displays a "403 Forbidden" message when access is denied.
+- Informs users they lack permission to view the requested page.
+
+![403](docs/readme_img/403.PNG)
 
 ### Features Left To Implement
 
