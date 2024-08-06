@@ -301,7 +301,7 @@ The website utilizes the Roboto font for body text, ensuring a clean and modern 
 The main image is prominently displayed in the middle part of the home page, sourced from a royalty-free image site, creating a visually inviting element for visitors.
 
 ### Layout and Structure
-This project is built upon the Restaurantly v3.1.0 template from BootstrapMade.com, with tailored adjustments to align with the project requirements. The layout is responsive, ensuring an optimal viewing experience across various devices.
+This project is based on the Restaurantly v3.1.0 template from themewagon.com, with tailored adjustments to align with the project requirements. The layout is responsive, ensuring an optimal viewing experience across various devices.
 
 ## Technolgies
 
@@ -328,9 +328,25 @@ This project is built upon the Restaurantly v3.1.0 template from BootstrapMade.c
 - TinyPNG
   - This was used to compress the hero image for optimal load times
 
-**Python Modules Used**
+**Python Modules**
 
-**External Python Modules**
+- asgiref==3.8.1: Provides support for ASGI (Asynchronous Server Gateway Interface) applications in Django.
+- crispy-bootstrap5==0.7: Integrates Bootstrap 5 styling with Django forms for improved appearance.
+- dj-database-url==0.5.0: Allows configuration of Django databases via URL strings.
+- Django==4.2.13: The main web framework used for building the project.
+- django-allauth==0.57.2: Handles authentication, registration, and account management in Django.
+- django-crispy-forms==2.2: Enhances Django form rendering with better layouts and styling.
+- freezegun==1.5.1: Provides tools for freezing time in unit tests to ensure consistency.
+- gunicorn==20.1.0: WSGI HTTP server for serving Django applications in production.
+- oauthlib==3.2.2: Library for creating OAuth 1 and 2 providers and consumers.
+-  psycopg2==2.9.9: PostgreSQL adapter for Python, used for database connectivity.
+- PyJWT==2.8.0: Implements JSON Web Token (JWT) for secure token-based authentication.
+- python3-openid==3.2.0: Provides OpenID authentication support.
+- requests-oauthlib==2.0.0: OAuthlib support for the requests library to handle OAuth authentication.
+- sqlparse==0.5.0: SQL parser used for formatting and parsing SQL queries.
+- whitenoise==5.3.0: Serves static files efficiently in Django applications.
+
+In addition to these external modules, standard Python modules like datetime and messages are also used for handling dates and providing user feedback, while Django class-based views, streamline the management of data display, updates, deletions, and creation within the application.
 
 ## Testing
 
@@ -400,6 +416,9 @@ Most commonly, forks are used to either propose changes to someone else's projec
 - This will create a duplicate of the full project in your GitHub Repository.
 
 ## Credits 
+
+Images: The hero image is sourced from Pexels, a royalty-free image platform.
+Bootstrap Template: Elements from the Restaurantly v3.1.0 Bootstrap template from themewagon.com were used and customized to fit the project's design needs
 
 ## Sources
 
