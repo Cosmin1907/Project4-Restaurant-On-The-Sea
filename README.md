@@ -197,6 +197,7 @@ It helps users identify the website when multiple tabs are open.
 
 ### Features Left To Implement
 
+Next, I plan to implement an editable menu feature. This will allow staff members to manage and update the menu directly through the site, enhancing administrative control and keeping the menu current. This feature will include options for adding, editing, and deleting menu items, ensuring the content reflects the latest offerings.
 
 ## The-Skeleton-Plane
 
