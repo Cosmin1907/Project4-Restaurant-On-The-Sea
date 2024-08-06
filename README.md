@@ -318,8 +318,6 @@ These measures help protect the application from unauthorized access and ensure 
 
 **External Python Modules**
 
-* 
-
 ## Testing
 
 Test cases and results can be found in the [TESTING.md](TESTING.md) file. 
@@ -363,7 +361,7 @@ The site was deployed to Heroku. The steps to deploy are as follows:
 
 The app should now be deployed.
 
-The live link can be found here: [Live Site]()
+The live link can be found here: [Live Site](https://project4-restaurant-booking-cacc3b345e08.herokuapp.com/)
 
 ### Run Locally
 
