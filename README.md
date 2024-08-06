@@ -205,38 +205,46 @@ Next, I plan to implement an editable menu feature. This will allow staff member
 
 - Home page
 
-
-![Home Page]()
+![Home Page Not Signed In](docs/readme_img/home_NotLoggedIn.PNG)
+![Home Page Signed In](docs/readme_img/home_NotLoggedIn.PNG)
 
 
 - Signup page
 
 
-![Sign up Page]()
+![Sign up Page](docs/readme_img/register.PNG)
 
 - Log in
 
-![Login Page]()
+![Login Page](docs/readme_img/signin.PNG)
 
 - Log Out
 
-![Logout Page]()
+![Logout Page](docs/readme_img/sign_out.PNG)
 
 - Create Booking
 
-![Create Booking]()
+![Create Booking](docs/readme_img/sign_out.PNG)
 
 - Edit Booking 
 
-![Edit Booking]()
+![Edit Booking](docs/readme_img/edit_booking_page.PNG)
 
 - Manage Bookings
 
-![Manage Bookings]()
+![Manage Bookings](docs/readme_img/bookings_page.PNG)
 
 - Delete Booking 
 
-![Delete Booking]()
+![Delete Booking](docs/readme_img/delete_booking.PNG)
+
+- Menu Page
+
+![Menu Page](docs/readme_img/menu_page.PNG)
+
+- Rating Page
+
+![403 Error](docs/readme_img/rating.PNG)
 
 - 403 Error 
 
@@ -251,6 +259,23 @@ Entity relationship diagram was created using []()
 
 ### Security
 
+Several security measures were implemented to ensure the safety and integrity of user data and application functionality:
+
+**Class-Based View Security:**
+
+The views use UserPassesTestMixin to restrict access, ensuring that only authorized users can perform certain actions.
+Unauthenticated users are automatically denied access with a PermissionDenied response.
+
+**Template-Based Security:**
+
+Templates include checks using {% if user.is_authenticated %} to ensure that sensitive information and features are only accessible to authenticated users.
+Additional checks like {% if user.is_staff %} are used to display staff-specific content.
+
+**Environment Variables:**
+
+Sensitive information such as secret keys and API keys are stored securely in env.py for local development.
+In production, these variables are managed using Heroku config vars to prevent exposure of sensitive data.
+These measures help protect the application from unauthorized access and ensure that sensitive information is handled securely.
 
 ## The-Surface-Plane
 ### Design
