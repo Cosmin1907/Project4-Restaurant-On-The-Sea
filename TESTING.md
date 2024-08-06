@@ -180,6 +180,7 @@ Tests were performed on the create booking to ensure that:
 4. Editing a booking to increase the guest size is restricted if no tables have sufficient capacity.
 5. Forms cannot be submitted with required fields left empty.
 6. The form correctly validates the phone number format.
+7. Users cannot access other users' bookings via URLs
 
 
 ## Unit Testing
@@ -229,7 +230,10 @@ The only warning that remained was about an unused variable. The function was ca
 
 Lighthouse report highlighted SEO and performance issues. Added meta descriptions and keywords to boost SEO to 100. Improved performance by reducing image size.
 
-![Lighthouse v1](docs/testing_img/lighthouse.PNG)
+![Lighthouse Home](docs/testing_img/lighthouse.PNG)
+![Lighthouse Menu](docs/testing_img/lighthouse_menu.PNG)
+![Lighthouse Bookings](docs/testing_img/litehouse_bookings.PNG)
+![Lighthouse Book Table](docs/testing_img/lighthosue_table.PNG)
 
 ## Responsiveness
 
