@@ -203,14 +203,16 @@ Next, I plan to implement an editable menu feature. This will allow staff member
 
 ### Wireframes
 
-- Home page
+- Home page *Logged In*
 
-![Home Page Not Signed In](docs/readme_img/home_NotLoggedIn.PNG)
+![Home Page Not Signed In](docs/readme_img/home_loggedIn.PNG)
+
+- Home page *Logged Out*
+
 ![Home Page Signed In](docs/readme_img/home_NotLoggedIn.PNG)
 
 
 - Signup page
-
 
 ![Sign up Page](docs/readme_img/register.PNG)
 
@@ -224,7 +226,7 @@ Next, I plan to implement an editable menu feature. This will allow staff member
 
 - Create Booking
 
-![Create Booking](docs/readme_img/sign_out.PNG)
+![Create Booking](docs/readme_img/book_table_page.PNG)
 
 - Edit Booking 
 
@@ -248,8 +250,15 @@ Next, I plan to implement an editable menu feature. This will allow staff member
 
 - 403 Error 
 
-![403 Error]()
+![403 Error](docs/readme_img/403_wire.PNG)
 
+- 404 Error
+
+![404 Error](docs/readme_img/404.PNG)
+
+- 500 Error
+
+![404 Error](docs/readme_img/500.PNG)
 
 ### Database-Design
 
@@ -278,16 +287,21 @@ In production, these variables are managed using Heroku config vars to prevent e
 These measures help protect the application from unauthorized access and ensure that sensitive information is handled securely.
 
 ## The-Surface-Plane
+
 ### Design
 
 ### Colour-Scheme
+The primary color scheme of the website features a rich black background (#1a1814), complemented by white text (#FFF) for readability. Accents of gold (#cda45e) are applied to links, buttons, and hover effects, adding a touch of elegance throughout the site.
 
 
 ### Typography
-
+The website utilizes the Roboto font for body text, ensuring a clean and modern look. The Playfair Display font is employed for headings, providing a sophisticated contrast. Both fonts are imported from Google Fonts into the stylesheet.
 
 ### Imagery
+The main image is prominently displayed in the middle part of the home page, sourced from a royalty-free image site, creating a visually inviting element for visitors.
 
+### Layout and Structure
+This project is built upon the Restaurantly v3.1.0 template from BootstrapMade.com, with tailored adjustments to align with the project requirements. The layout is responsive, ensuring an optimal viewing experience across various devices.
 
 ## Technolgies
 
