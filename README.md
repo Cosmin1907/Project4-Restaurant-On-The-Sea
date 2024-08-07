@@ -6,7 +6,36 @@ The live link can be found here: [Live Site ](https://project4-restaurant-bookin
 ![Mock Up](docs/readme_img/mockup.PNG)
 
 ## Table of Contents
-
+- [Restaurant Blue Horizon](#restaurant-blue-horizon)
+  - [Table of Contents](#table-of-contents)
+- [User-Experience-Design](#user-experience-design)
+  - [The-Strategy-Plane](#the-strategy-plane)
+    - [Site-Goals](#site-goals)
+    - [Agile Planning](#agile-planning)
+    - [Milestones](#milestones)
+  - [The-Scope-Plane](#the-scope-plane)
+  - [The-Structure-Plane](#the-structure-plane)
+    - [Features](#features)
+    - [Features Left To Implement](#features-left-to-implement)
+  - [The-Skeleton-Plane](#the-skeleton-plane)
+    - [Wireframes](#wireframes)
+    - [Database-Design](#database-design)
+    - [Security](#security)
+  - [The-Surface-Plane](#the-surface-plane)
+    - [Design](#design)
+    - [Colour-Scheme](#colour-scheme)
+    - [Typography](#typography)
+    - [Imagery](#imagery)
+    - [Layout and Structure](#layout-and-structure)
+  - [Technolgies](#technolgies)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+    - [Version Control](#version-control)
+    - [Heroku Deployment](#heroku-deployment)
+    - [Run Locally](#run-locally)
+    - [Fork Project](#fork-project)
+  - [Credits](#credits)
+  - [Sources](#sources)
 
 # User-Experience-Design
 
@@ -310,11 +339,11 @@ This project is based on the Restaurantly v3.1.0 template from themewagon.com, w
 - CSS
   - The Website was styled using custom CSS in an external file.
 - JavaScript
-  - JavaScript was used to make the custom slider on the menu page change and the bootstrap date picker.
+  - JavaScript was used to create interactive features, such as a custom slider on the rating page. For example, a function updates ratings and reloads the page based on user input.
 - Python
   - Python was the main programming language used for the application using the Django Framework.
-- Visual Studio Code
-  - The website was developed using Visual Studio Code IDE
+- GitPod
+  - The website development was conducted in GitPod, which provided a cloud-based development environment for coding and testing.
 - GitHub
   - Source code is hosted on GitHub
 - Git
@@ -361,6 +390,8 @@ The site was created using the Visual Studio Code editor and pushed to github to
 The following git commands were used throughout development to push code to the remote repo:
 
 ```git add <file>``` - This command was used to add the file(s) to the staging area before they are committed.
+
+```git add .``` - This command was used to add all changes in the working directory to the staging area, preparing them for the next commit.
 
 ```git commit -m “commit message”``` - This command was used to commit changes to the local repository queue ready for the final step.
 
@@ -417,8 +448,8 @@ Most commonly, forks are used to either propose changes to someone else's projec
 
 ## Credits 
 
-Images: The hero image is sourced from Pexels, a royalty-free image platform.
-Bootstrap Template: Elements from the Restaurantly v3.1.0 Bootstrap template from themewagon.com were used and customized to fit the project's design needs
+- Images: The hero image is sourced from Pexels, a royalty-free image platform.
+- Bootstrap Template: Elements from the Restaurantly v3.1.0 Bootstrap template from themewagon.com were used and customized to fit the project's design needs
 
 ## Sources
 
