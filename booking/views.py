@@ -1,3 +1,4 @@
+from datetime import timedelta, date
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect
 from django.contrib import messages
@@ -30,9 +31,15 @@ class BookingList(generic.ListView):
     def get_queryset(self):
         user = self.request.user
         if user.is_staff:
-            return Booking.objects.all()
+            # returns all bookings with date greater than yesterday
+            return Booking.objects.filter(
+                date__gt=(date.today()-timedelta(days=1))
+                )
         else:
-            return Booking.objects.filter(user=user)
+            # returns all bookings for logged in customer
+            # with date greater than yesterday
+            return Booking.objects.filter(
+                user=user, date__gt=(date.today()-timedelta(days=1)))
 
 
 # Source: https://docs.djangoproject.com/en/5.0/topics/class-based-views/intro/
