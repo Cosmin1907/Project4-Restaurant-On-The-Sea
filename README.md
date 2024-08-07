@@ -224,6 +224,20 @@ It helps users identify the website when multiple tabs are open.
 
 ![403](docs/readme_img/403.PNG)
 
+**404 Page**
+
+- Displays a "404 Not Found" message.
+- Informs users the requested page does not exist.
+
+![404](docs/readme_img/404_error.PNG)
+
+**500 Page**
+
+- Shows a "500 Internal Server Error" message.
+- Notifies users of a server issue preventing access.
+
+![500](docs/readme_img/500_error.PNG)
+
 ### Features Left To Implement
 
 Next, I plan to implement an editable menu feature. This will allow staff members to manage and update the menu directly through the site, enhancing administrative control and keeping the menu current. This feature will include options for adding, editing, and deleting menu items, ensuring the content reflects the latest offerings.
@@ -403,24 +417,23 @@ The following git commands were used throughout development to push code to the 
 
 The site was deployed to Heroku. The steps to deploy are as follows:
 
+- Prepare the Application: Set DEBUG to False in the settings.py file, which ensures that the application runs in production mode during deployment. Commit all changes and push your code to your GitHub repository.
+- Set Environment Variables: In your local env.py file
+- Database Management: Ensure that all database migrations have been made and the current state of your models is reflected in the database schema. The command python manage.py makemigrations and python manage.py migrate are usually used for this purpose in Django.
 - Navigate to heroku and create an account
 - Click the new button in the top right corner
 - Select create new app
 - Enter app name
 - Select region and click create app
-- Click the resources tab and search for Heroku Postgres
-- Select hobby dev and continue
 - Go to the settings tab and then click reveal config vars
 - Add the following config vars:
   - SECRET_KEY: (Your secret key)
-  - DATABASE_URL: (This should already exist with add on of postgres)
-  - EMAIL_HOST_USER: (email address)
-  - EMAIL_HOST_PASS: (email app password)
-- Click the deploy tab
+  - DATABASE_URL: (your postgres database)
+- Click the Deploy tab
 - Scroll down to Connect to GitHub and sign in / authorize when prompted
 - In the search box, find the repositoy you want to deploy and click connect
 - Scroll down to Manual deploy and choose the main branch
-- Click deploy
+- Click Deploy Branch
 
 The app should now be deployed.
 
