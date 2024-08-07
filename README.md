@@ -291,9 +291,11 @@ Next, I plan to implement an editable menu feature. This will allow staff member
 
 ### Database-Design
 
-Entity relationship diagram was created using []() 
+The database supports CRUD operations for registered users when logged in. Central to this is the user model, which connects to the main booking tables and quality ratings through primary/foreign key relationships. Users can view and manage their bookings and rate the quality of services.
 
-![Entity Relationship Diagram]()
+Entity relationship diagram was created using [DBeaver](https://dbeaver.io/) and shows the schemas for each of the models and how they are related.
+
+![Entity Relationship Diagram](docs/readme_img/erd.PNG)
 
 ### Security
 
